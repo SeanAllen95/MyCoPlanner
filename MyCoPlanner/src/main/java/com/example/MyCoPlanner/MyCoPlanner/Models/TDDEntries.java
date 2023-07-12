@@ -5,26 +5,25 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import javax.persistence.Id;
 
-
-@Document("mvpentries")
-public class MVPEntries {
+@Document("TDDEntries")
+public class TDDEntries {
 
     @Id
     private String id;
 
-    @Field(name ="MVPentry")
+    @Field(name = "TDDentry")
     private String entry;
 
     @Field(name = "completed")
     private Boolean completed;
 
-    public MVPEntries() {
+    public TDDEntries() {
     }
 
-    public MVPEntries(String id, String entry, Boolean completed) {
+    public TDDEntries(String id, String entry, Boolean completed) {
         this.id = id;
         this.entry = entry;
-        this.completed = false;
+        this.completed = completed;
     }
 
     public String getId() {
@@ -51,4 +50,3 @@ public class MVPEntries {
         this.completed = completed;
     }
 }
-
