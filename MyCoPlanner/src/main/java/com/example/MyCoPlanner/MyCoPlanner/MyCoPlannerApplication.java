@@ -10,5 +10,5 @@ public class MyCoPlannerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MyCoPlannerApplication.class, args);
 	}
-	
+
 }

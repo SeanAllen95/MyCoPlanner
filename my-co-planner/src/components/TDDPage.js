@@ -34,7 +34,7 @@ const TDDPage = () => {
 
     return(
         <>
-        <h1>Start a new project</h1>
+        <h1>Add tests!</h1>
         <form onSubmit={handleSubmit}>
             <label htmlFor="userEntry">TDD Entry</label>
             <input type='text' id="userEntry" value={userEntry} onChange={handleEntryChange}/>
