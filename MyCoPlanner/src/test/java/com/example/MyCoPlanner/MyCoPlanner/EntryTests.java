@@ -13,7 +13,7 @@ public class EntryTests {
 
     @Before
     public void before(){
-        entry = new Entry("1234", "Decide on a Name", "false");
+        entry = new Entry("1234", "MVP", {"Decide on a Name":"Incomplete"}, ["I hope this test passes"]);
     }
 
     @Test
@@ -22,13 +22,15 @@ public class EntryTests {
     }
 
     @Test
-    public void hasAnEntry(){
+    public void hasAnEntry1(){
         assertEquals("Decide on a Name", entry.getEntry());
     }
 
+
+
     @Test
-    public void hasCompletedStatus(){
-        assertEquals("false", entry.getCompleted());
+    public void hasNotes(){
+        assertEquals("I hope this test passes", entry.getNotes());
     }
 
 }

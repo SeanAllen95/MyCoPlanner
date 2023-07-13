@@ -15,14 +15,19 @@ function App() {
 
   const [allEntries, setAllEntries] = useState(null)
 
-    const [MvpProjectAim, setMvpProjectAim] = useState("Entry Here");
-    const [userEntry2, setUserEntry2] = useState("Entry 2 Here");
+    const [category, setCategory] = useState("Category");
+    const [entry1, setEntry1] = useState("Entry 1");
+    const [completed1, setCompleted1] = useState("In progress");
+    const [entry2, setEntry2] = useState("Entry 2");
+    const [completed2, setCompleted2] = useState("In progress");
+    const [notes, setNotes] = useState("Notes");
 
-    const handleMvpProjectAimChange = (ev) => setMvpProjectAim(ev.target.value);
-    const handleEntry2Change = (ev) => setUserEntry2(ev.target.value);
+    const handleEntry1Change = (ev) => setEntry1(ev.target.value);
+    const handleEntry2Change = (ev) => setEntry2(ev.target.value);
+    const handleNotesChange = (ev) => setNotes(ev.target.value);
 
     const handleSubmit = () => {
-        const data = {entry: MvpProjectAim, completed: userEntry2};
+        const data = {category: category, entry1: entry1, completed1: completed1, entry2: entry2, completed2: completed2, notes: notes};
         
         fetch('http://localhost:8080/entries', {
             method: 'POST',
@@ -63,7 +68,7 @@ function App() {
         <Routes>
         <Route path="/" element={< HomePage />} />
         <Route path="/about" element={< AboutPage />} />
-        <Route path="/NewProject" element={< MVPContainer handleMvpProjectAimChange = {handleMvpProjectAimChange} handleEntry2Change = {handleEntry2Change} MvpProjectAim = {MvpProjectAim} userEntry2 = {userEntry2} handleSubmit={handleSubmit} allEntries = {allEntries}/>} />
+        <Route path="/NewProject" element={< MVPContainer handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} entry1 = {entry1} entry2 = {entry2} handleSubmit={handleSubmit} allEntries = {allEntries} handleNotesChange = {handleNotesChange}/>} />
         <Route path="/TDD" element={< TDDPage />} />
         </Routes>
     </Router>

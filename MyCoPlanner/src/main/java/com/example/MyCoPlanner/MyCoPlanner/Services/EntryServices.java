@@ -23,7 +23,9 @@ public class EntryServices {
         Entry savedEntry = entryRepository.findById(entry.getId())
                 .orElseThrow(() -> new RuntimeException(String.format("Cannot find Entry by id %s", entry.getId())));
 
+        savedEntry.setCategory(entry.getCategory());
         savedEntry.setEntry(entry.getEntry());
+        savedEntry.setNotes(entry.getNotes());
         entryRepository.save(entry);
     }
 
