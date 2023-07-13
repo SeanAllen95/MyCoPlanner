@@ -3,7 +3,7 @@ import React, {Component, useState, useEffect} from 'react';
 
 
 
-const MVPContainer = ({category, handleEntry1Change, handleEntry2Change, MvpProjectAim, userEntry2, handleSubmit, allEntries, handleNotesChange}) =>{
+const MVPContainer = ({category, handleEntryChange, handleEntry2Change, MvpProjectAim, userEntry2, handleSubmit, allEntries, handleNotesChange, handleAddField}) =>{
 
     
     const allMongoEntries = allEntries?.map((entry) => {
@@ -15,7 +15,7 @@ const MVPContainer = ({category, handleEntry1Change, handleEntry2Change, MvpProj
 
 return (
     <>
-    <NewProjectForm category = {category} handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} MvpProjectAim = {MvpProjectAim} userEntry2 = {userEntry2} handleSubmit={handleSubmit} handleNotesChange={handleNotesChange}/>
+    <NewProjectForm category = {category} handleEntryChange = {handleEntryChange} handleEntry2Change = {handleEntry2Change} MvpProjectAim = {MvpProjectAim} userEntry2 = {userEntry2} handleSubmit={handleSubmit} handleNotesChange={handleNotesChange} handleAddField={handleAddField}/>
     <h3>all plans</h3>
     <h3>{allMongoEntries}</h3>
 
