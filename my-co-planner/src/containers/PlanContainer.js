@@ -1,14 +1,11 @@
 import React, {Component, useState, useEffect} from 'react';
+import MVPContainer from './MVPContainer';
 
 
 const PlanContainer = () => {
 
     const [allPlans, setAllPlans] = useState(null)
-    const [userEntry, setUserEntry] = useState("Entry Here");
-    const [userEntry2, setUserEntry2] = useState("Entry 2 Here");
-
-    const handleEntryChange = (ev) => setUserEntry(ev.target.value);
-    const handleEntry2Change = (ev) => setUserEntry2(ev.target.value);
+    
 
 
     useEffect(() => {
@@ -22,10 +19,13 @@ const PlanContainer = () => {
         )
     }
     return (
+        <>
         <h1>hello</h1>
+        <MVPContainer />
+        </>
     )
 
     
     }
 
-export default PlanContainer
+export default PlanContainer;
