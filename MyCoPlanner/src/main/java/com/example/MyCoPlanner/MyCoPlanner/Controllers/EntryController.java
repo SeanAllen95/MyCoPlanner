@@ -24,7 +24,7 @@ public class EntryController {
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
-    @PutMapping
+    @PutMapping(value = "/edit/{id}")
     public ResponseEntity updateEntry(@RequestBody Entry entry){
         entryServices.updateEntry(entry);
         return ResponseEntity.ok().build();
@@ -35,7 +35,7 @@ public class EntryController {
         return ResponseEntity.ok(entryServices.getAllEntries());
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity deleteEntry(@PathVariable String id){
         entryServices.deleteEntry(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();

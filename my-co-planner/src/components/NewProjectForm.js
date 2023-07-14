@@ -1,18 +1,18 @@
 
-const NewProjectForm = ({category, handleEntryChange, handleCompleteChange, entry, complete, handleSubmit, handleNotesChange, notes}) => {
+const NewProjectForm = ({category, handleCategoryChange, handleEntryChange, handleCompleteChange, entry, complete, handleSubmit, handleNotesChange, notes}) => {
 
 
     return(
         <>
-        <h1>Start a new project</h1>
         <form onSubmit={handleSubmit}>
-            <label htmlFor="category">Category</label>
-            <input type='text' id="category" value={category} /><br/>
 
-            <label htmlFor="entry">What is the main aim of the project?</label>
+            <label htmlFor="category">Category</label>
+            <input type='text' id="category" value={category} onChange={handleCategoryChange} /><br/>
+
+            <label htmlFor="entry">Answer</label>
             <input type='text' id="entry" value={entry} onChange={handleEntryChange}/><br/>
 
-            <label htmlFor="complete">What is the name of the project?</label>
+            <label htmlFor="complete">Complete?</label>
             <input type='text' id="complete" value={complete} onChange={handleCompleteChange}/><br/>
 
             <label htmlFor="notes">Notes</label>
