@@ -26,6 +26,7 @@ public class EntryServices {
         savedEntry.setCategory(entry.getCategory());
         savedEntry.setEntry(entry.getEntry());
         savedEntry.setNotes(entry.getNotes());
+        savedEntry.setComplete(entry.getComplete());
         entryRepository.save(entry);
     }
 

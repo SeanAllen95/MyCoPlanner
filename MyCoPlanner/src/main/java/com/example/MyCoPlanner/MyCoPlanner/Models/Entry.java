@@ -18,18 +18,22 @@ public class Entry {
     private String category;
 
     @Field(name= "entry")
-    private HashMap<String, String> entry;
+    private String entry;
+
+    @Field(name= "complete")
+    private String complete;
 
     @Field(name= "notes")
-    private ArrayList<String> notes;
+    private String notes;
 
     public Entry() {
     }
 
-    public Entry(String id, String category, HashMap<String, String> entry, ArrayList<String> notes) {
+    public Entry(String id, String category, String entry, String complete, String notes) {
         this.id = id;
         this.category = category;
         this.entry = entry;
+        this.complete = complete;
         this.notes = notes;
     }
 
@@ -49,20 +53,28 @@ public class Entry {
         this.category = category;
     }
 
-    public HashMap<String, String> getEntry() {
+    public String getEntry() {
         return entry;
     }
 
-    public void setEntry(HashMap<String, String> entry) {
+    public void setEntry(String entry) {
         this.entry = entry;
     }
 
-    public ArrayList<String> getNotes() {
+    public String getNotes() {
         return notes;
     }
 
-    public void setNotes(ArrayList<String> notes) {
+    public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    public String getComplete() {
+        return complete;
+    }
+
+    public void setComplete(String complete) {
+        this.complete = complete;
     }
 }
 

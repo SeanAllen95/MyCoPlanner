@@ -16,14 +16,16 @@ function App() {
     const [allEntries, setAllEntries] = useState(null)
 
     const [category, setCategory] = useState("Category");
-    const [entry, setEntry] = useState(new Map());
+    const [entry, setEntry] = useState("Entry");
+    const [complete, setComplete] = useState("Inomplete");
     const [notes, setNotes] = useState("Notes");
 
     const handleEntryChange = (ev) => setEntry(ev.target.value);
+    const handleCompleteChange = (ev) => setComplete(ev.target.value);
     const handleNotesChange = (ev) => setNotes(ev.target.value);
 
     const handleSubmit = () => {
-        const data = {category: category, entry: entry, notes: notes};
+        const data = {category: category, entry: entry, complete: complete, notes: notes};
         
         fetch('http://localhost:8080/entries', {
             method: 'POST',
@@ -44,9 +46,9 @@ function App() {
             });
         };
 
-        const handleAddField = () => {
-          setEntry([...entry, { value: '' }]);
-        };
+        // const handleAddField = () => {
+        //   setEntry([...entry, { value: '' }]);
+        // };
 
        
         useEffect(() => {
@@ -61,14 +63,14 @@ function App() {
             )
         }
 
-        const handleChange = event => {
-          const { name, value } = event.target;
-          setEntry(prevState => {
-            const updatedFormData = new Map(prevState);
-            updatedFormData.set(name, value);
-            return updatedFormData;
-          });
-        };
+        // const handleChange = event => {
+        //   const { name, value } = event.target;
+        //   setEntry(prevState => {
+        //     const updatedFormData = new Map(prevState);
+        //     updatedFormData.set(name, value);
+        //     return updatedFormData;
+        //   });
+        // };
 
 
   return (
@@ -77,7 +79,7 @@ function App() {
         <Routes>
         <Route path="/" element={< HomePage />} />
         <Route path="/about" element={< AboutPage />} />
-        <Route path="/NewProject" element={< MVPContainer handleEntryChange = {handleEntryChange} handleSubmit={handleSubmit} allEntries = {allEntries} handleNotesChange = {handleNotesChange} handleAddField={handleAddField} handleChange={handleChange}/>} />
+        <Route path="/NewProject" element={< MVPContainer handleEntryChange = {handleEntryChange} handleSubmit={handleSubmit} allEntries = {allEntries} handleNotesChange = {handleNotesChange} handleCompleteChange={handleCompleteChange} handleChange={handleChange}/>} />
         <Route path="/TDD" element={< TDDPage />} />
         </Routes>
     </Router>
