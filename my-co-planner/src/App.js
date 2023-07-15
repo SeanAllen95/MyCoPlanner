@@ -180,7 +180,6 @@ function App() {
         <Route path="/" element={< HomePage />} />
         <Route path="/about" element={< AboutPage />} />
         <Route path="/NewProject" element={< ProjectInfoContainer NewProjectForm handleProjectNameChange = {handleProjectNameChange} handleDescriptionChange = {handleProjectDescriptionChange} allEntries = {allEntries} handleProjectAim1Change={handleProjectAim1Change} handleProjectAim2Change={handleProjectAim2Change} handleProjectAim3Change={handleProjectAim3Change} handleProjectNotesChange = {handleProjectNotesChange} handleNewProjectSubmit = {handleNewProjectSubmit} />} />
-        {/* <Route path="/edit/:id" element={< EditForm  handleEntryChange = {handleEntryChange} handleCategoryChange = {handleCategoryChange}  allEntries = {allEntries} handleNotesChange = {handleNotesChange} handleCompleteChange={handleCompleteChange}/>} /> */}
         <Route path="/MyCollection" element={< MyCollectionContainer />} />
         <Route path="/MyCollection/TDD" element={< TDDContainer handleTestNameChange={handleTestNameChange} handleTestCodeChange={handleTestCodeChange} handleTestStatusChange={handleTestStatusChange} handleTDDSubmit={handleTDDSubmit} />} />
         <Route path= "MyCollection/ProjectInformation" element={< ProjectInformationContainer allEntries={allEntries} />}/>

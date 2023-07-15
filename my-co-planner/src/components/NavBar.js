@@ -17,9 +17,6 @@ const NavBar = () => {
       <li>
         <Link to="/MyCollection">MyCollection</Link>
       </li>
-      <li>
-        <Link to="/MyChecklist">MyChecklist</Link>
-      </li>
     </ul>
   );
 }
