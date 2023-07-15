@@ -1,6 +1,6 @@
 package com.example.MyCoPlanner.MyCoPlanner;
 
-import com.example.MyCoPlanner.MyCoPlanner.Models.Entry;
+import com.example.MyCoPlanner.MyCoPlanner.Models.NewProjectEntry;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -9,11 +9,11 @@ import static org.junit.Assert.assertEquals;
 
 public class EntryTests {
 
-    private Entry entry;
+    private NewProjectEntry entry;
 
     @Before
     public void before(){
-        entry = new Entry("1234", "MVP", {"Decide on a Name":"Incomplete"}, ["I hope this test passes"]);
+        entry = new NewProjectEntry("1234", "MVP", {"Decide on a Name":"Incomplete"}, ["I hope this test passes"]);
     }
 
     @Test

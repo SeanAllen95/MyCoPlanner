@@ -15,10 +15,10 @@ const NavBar = () => {
         <Link to="/NewProject">New Project</Link>
       </li>
       <li>
-        <Link to="/TDD">TDD</Link>
+        <Link to="/MyCollection">MyCollection</Link>
       </li>
       <li>
-        <Link to="/edit{id}">Edit Form</Link>
+        <Link to="/MyChecklist">MyChecklist</Link>
       </li>
     </ul>
   );
