@@ -1,18 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
 import React, {Component, useState, useEffect} from 'react';
-import PlanContainer from './containers/PlanContainer'
 import { BrowserRouter as Router, Routes, Route, useParams} from "react-router-dom";
 import NavBar from './components/NavBar';
 import AboutPage from './components/About'
 import HomePage from './components/Home'
 import NewProjectPage from './components/NewProjectForm'
 import TDDPage from './components/TDDForm'
-import MVPContainer from './containers/ProjectInfoContainer';
+import MVPContainer from './containers/NewProjectContainer';
 import EditForm from './components/EditProjectForm';
-import ProjectInfoContainer from './containers/ProjectInfoContainer';
+import ProjectInfoContainer from './containers/NewProjectContainer';
 import MyCollectionContainer from './containers/MyCollectionContainer';
 import TDDContainer from './containers/TDDContainer';
+import ProjectInformationContainer from './containers/ProjectInformationContainer';
 
 
 function App() {
@@ -34,20 +34,20 @@ function App() {
   const handleProjectAim3Change = (ev) => setProjectAim3(ev.target.value);
   const handleProjectNotesChange = (ev) => setProjectNotes(ev.target.value);
 
+  // TDD Form States
 
+  const [testName, setTestName] = useState("Test name goes here");
+  const [testCode, setTestCode] = useState("Test code goes here");
+  const [testStatus, setTestStatus] = useState("Test status goes here");
 
+  // TDD State handlers
+
+  const handleTestNameChange = (ev) => setTestName(ev.target.value);
+  const handleTestCodeChange = (ev) => setTestCode(ev.target.value);
+  const handleTestStatusChange = (ev) => setTestStatus(ev.target.value);
 
   const [allEntries, setAllEntries] = useState(null)
-  const [category, setCategory] = useState("Category");
-  const [entry, setEntry] = useState("Entry");
-  const [complete, setComplete] = useState("Inomplete");
-  const [notes, setNotes] = useState("Notes");
    
-
-  const handleCategoryChange = (ev) => setCategory(ev.target.value);
-  const handleEntryChange = (ev) => setEntry(ev.target.value);
-  const handleCompleteChange = (ev) => setComplete(ev.target.value);
-  const handleNotesChange = (ev) => setNotes(ev.target.value);
 
   // const {entryId} = useParams()
 
@@ -55,6 +55,8 @@ function App() {
   // const entryId = url.substring(url.lastIndexOf('/') + 1);
   // console.log('Entry ID:', entryId);
 
+
+  // Handle new project submit
 
   const handleNewProjectSubmit = () => {
       const data = {projectName: projectName, projectDescription: projectDescription, projectAim1:  projectAim1, projectAim2: projectAim2, projectAim3: projectAim3, projectNotes: projectNotes};
@@ -76,6 +78,30 @@ function App() {
           .catch(error => {
           console.error('An error occurred:', error);
           });};
+
+    // Handle TDD submit
+
+    const handleTDDSubmit = () => {
+      const data = {testName: testName, testCode: testCode, testStatus: testStatus};
+    
+      fetch('http://localhost:8080/TDDInformation', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+        .then(response => {
+          if (response.ok) {
+            console.log('Data submitted successfully');
+          } else {
+            console.error('Failed to submit data:', response.status);
+          }
+        })
+        .catch(error => {
+          console.error('An error occurred:', error);
+        });
+    };
 
 
     // const handleUpdateSubmit = e => {
@@ -156,7 +182,8 @@ function App() {
         <Route path="/NewProject" element={< ProjectInfoContainer NewProjectForm handleProjectNameChange = {handleProjectNameChange} handleDescriptionChange = {handleProjectDescriptionChange} allEntries = {allEntries} handleProjectAim1Change={handleProjectAim1Change} handleProjectAim2Change={handleProjectAim2Change} handleProjectAim3Change={handleProjectAim3Change} handleProjectNotesChange = {handleProjectNotesChange} handleNewProjectSubmit = {handleNewProjectSubmit} />} />
         {/* <Route path="/edit/:id" element={< EditForm  handleEntryChange = {handleEntryChange} handleCategoryChange = {handleCategoryChange}  allEntries = {allEntries} handleNotesChange = {handleNotesChange} handleCompleteChange={handleCompleteChange}/>} /> */}
         <Route path="/MyCollection" element={< MyCollectionContainer />} />
-        <Route path="/MyCollection/TDD" element={< TDDContainer />} />
+        <Route path="/MyCollection/TDD" element={< TDDContainer handleTestNameChange={handleTestNameChange} handleTestCodeChange={handleTestCodeChange} handleTestStatusChange={handleTestStatusChange} handleTDDSubmit={handleTDDSubmit} />} />
+        <Route path= "MyCollection/ProjectInformation" element={< ProjectInformationContainer allEntries={allEntries} />}/>
         </Routes>
     </Router>
   );

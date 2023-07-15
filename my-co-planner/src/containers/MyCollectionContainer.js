@@ -7,7 +7,9 @@ const MyCollectionContainer = () => {
     return(
         <>
         <MyCollection/>
-        <p> Go to <Link to="/MyCollection/TDD">TDD Page</Link></p>        </>
+        <p> Go to <Link to="/MyCollection/TDD">TDD Page</Link></p>
+        <p> Go to <Link to="/MyCollection/ProjectInformation">Project Information Page</Link></p>
+        </>
     )
 }
 

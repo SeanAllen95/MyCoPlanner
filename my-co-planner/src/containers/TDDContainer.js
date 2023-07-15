@@ -1,13 +1,13 @@
 import TDDForm from "../components/TDDForm";
 
 
-const TDDContainer = () => {
+const TDDContainer = ({handleTestNameChange, handleTestCodeChange, handleTestStatusChange, handleTDDSubmit}) => {
 
     return(
         <>
 
     <h1>This is the TDD container</h1>
-    <TDDForm/>
+    <TDDForm handleTestNameChange={handleTestNameChange} handleTestCodeChange={handleTestCodeChange} handleTestStatusChange={handleTestStatusChange} handleTDDSubmit={handleTDDSubmit}/>
     </>
 
     )
