@@ -1,11 +1,19 @@
+import { Link } from "react-router-dom";
+
+const ProjectInformation = ({projectInformation, allProjectInformation}) => {
+
+    const projectId = allProjectInformation?.map((entry) => {
+        return (entry.id);
+      });
 
 
-const ProjectInformation = ({allProjectInformation}) => {
 
     return (
         <>
         <p>Project information</p>
-        <p>{allProjectInformation}</p>
+        <p>{projectInformation}</p>
+        <p><Link to={`/MyCollection/ProjectInformation/edit/${projectId}`}>Edit Project details</Link></p>
+
         </>
     )
 

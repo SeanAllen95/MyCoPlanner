@@ -29,6 +29,8 @@ public class NewProjectEntryServices {
         savedNewProjectEntry.setProjectAim2(newProjectEntry.getProjectAim2());
         savedNewProjectEntry.setProjectAim3(newProjectEntry.getProjectAim3());
         savedNewProjectEntry.setProjectNotes(newProjectEntry.getProjectNotes());
+
+        newProjectEntryRepository.save(savedNewProjectEntry);
     }
 
     public List<NewProjectEntry> getAllEntries(){

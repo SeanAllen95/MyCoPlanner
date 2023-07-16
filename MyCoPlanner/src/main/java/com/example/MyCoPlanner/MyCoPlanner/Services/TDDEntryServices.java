@@ -27,6 +27,8 @@ public class TDDEntryServices {
         savedTDDEntry.setTestName(tddEntry.getTestName());
         savedTDDEntry.setTestCode(tddEntry.getTestCode());
         savedTDDEntry.setTestStatus(tddEntry.getTestStatus());
+
+        tddEntryRepository.save(savedTDDEntry);
     }
 
     public List<TDDEntry> getAllEntries(){

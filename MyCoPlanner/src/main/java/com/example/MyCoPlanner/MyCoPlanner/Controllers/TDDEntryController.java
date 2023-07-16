@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/TDDInformation")
+@RequestMapping("/api/TDDInformation")
 public class TDDEntryController {
 
     private final TDDEntryServices tddEntryServices;

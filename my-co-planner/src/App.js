@@ -8,11 +8,12 @@ import HomePage from './components/Home'
 import NewProjectPage from './components/NewProjectForm'
 import TDDPage from './components/TDDForm'
 import MVPContainer from './containers/NewProjectContainer';
-import EditForm from './components/EditProjectForm';
+import EditProjectForm from './components/EditProjectForm';
 import ProjectInfoContainer from './containers/NewProjectContainer';
 import MyCollectionContainer from './containers/MyCollectionContainer';
 import TDDContainer from './containers/TDDContainer';
 import ProjectInformationContainer from './containers/ProjectInformationContainer';
+import EditTDDForm from './components/EditTDDForm';
 
 
 function App() {
@@ -46,13 +47,40 @@ function App() {
   const handleTestCodeChange = (ev) => setTestCode(ev.target.value);
   const handleTestStatusChange = (ev) => setTestStatus(ev.target.value);
 
-  const [allEntries, setAllEntries] = useState(null)
+
+  // API request States
+  const [allProjectInformation, setAllProjectInformation] = useState(null)
+  const [allTDDInformation, setAllTDDInformation] = useState(null)
+
+  //  API requests
+
+  useEffect(() => {
+    getProjectInformation();
+  }, [])
+
+const getProjectInformation = function(){
+        fetch('http://localhost:8080/api/NewProjectInformation')
+        .then(response => response.json())
+        .then(allProjectInformation => setAllProjectInformation(allProjectInformation),
+    )
+}
+
+useEffect(() => {
+  getTDDInformation();
+}, [])
+
+const getTDDInformation = function(){
+      fetch('http://localhost:8080/api/TDDInformation')
+      .then(response => response.json())
+      .then(allTDDInformation => setAllTDDInformation(allTDDInformation),
+  )
+}
    
 
   // const {entryId} = useParams()
 
-  // const url = window.location.href;
-  // const entryId = url.substring(url.lastIndexOf('/') + 1);
+  const url = window.location.href;
+  const entryId = url.substring(url.lastIndexOf('/') + 1);
   // console.log('Entry ID:', entryId);
 
 
@@ -61,7 +89,7 @@ function App() {
   const handleNewProjectSubmit = () => {
       const data = {projectName: projectName, projectDescription: projectDescription, projectAim1:  projectAim1, projectAim2: projectAim2, projectAim3: projectAim3, projectNotes: projectNotes};
       
-      fetch('http://localhost:8080/NewProjectInformation', {
+      fetch('http://localhost:8080/api/NewProjectInformation', {
           method: 'POST',
           headers: {
           'Content-Type': 'application/json',
@@ -79,64 +107,32 @@ function App() {
           console.error('An error occurred:', error);
           });};
 
-    // Handle TDD submit
+    const handleEditProjectSubmit = e => {
 
-    const handleTDDSubmit = () => {
-      const data = {testName: testName, testCode: testCode, testStatus: testStatus};
-    
-      fetch('http://localhost:8080/TDDInformation', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      })
-        .then(response => {
-          if (response.ok) {
-            console.log('Data submitted successfully');
-          } else {
-            console.error('Failed to submit data:', response.status);
-          }
-        })
-        .catch(error => {
-          console.error('An error occurred:', error);
-        });
-    };
+      e.preventDefault();
 
+      const updatedData = {id: entryId, projectName: projectName, projectDescription: projectDescription, projectAim1:  projectAim1, projectAim2: projectAim2, projectAim3: projectAim3, projectNotes: projectNotes};
 
-    // const handleUpdateSubmit = e => {
-    // e.preventDefault();
-
-    // Prepare the updated data
-
-    // const updatedData = {
-    //   entryId,
-    //   category,
-    //   entry,
-    //   complete,
-    //   notes
-    // }};
 
     // Send the updated data to the server
     
-  //   fetch(`http://localhost:8080/entries/edit/${entryId}`, {
-  //     method: 'PUT', // or 'PATCH' depending on your API
-  //     headers: {
-  //       'Content-Type': 'application/json'
-  //     },
-  //     body: JSON.stringify(updatedData)
-  //   })
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       // Handle success or update UI
-  //       console.log('Updated data:', data);
-  //     })
-  //     .catch(error => {
-  //       // Handle error or update UI
-  //       console.log('Error updating data:', error);
-  //     });
-   
-  // };
+      fetch(`http://localhost:8080/api/NewProjectInformation/edit/${entryId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(updatedData)
+        })
+        .then(response => response.json())
+        .then(data => {
+          // Handle success or update UI
+          console.log('Updated data:', data);
+        })
+        .catch(error => {
+          // Handle error or update UI
+          console.log('Error updating data:', error,);
+        });
+      };
 
   // Delete a form
 
@@ -158,19 +154,58 @@ function App() {
   //       console.log('Error deleting entry:', error);
   //     });
   // };
-  
-       
-        useEffect(() => {
-            getAllEntries();
-          }, [])
+
+  // Handle TDD submit
+
+    const handleTDDSubmit = () => {
+      const data = {testName: testName, testCode: testCode, testStatus: testStatus};
     
-        const getAllEntries = function(){
-                fetch('http://localhost:8080/NewProjectInformation')
-                .then(response => response.json())
-                .then(allEntries => setAllEntries(allEntries),
-                console.log(allEntries)
-            )
-        }
+      fetch('http://localhost:8080/api/TDDInformation', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+        .then(response => {
+          if (response.ok) {
+            console.log('Data submitted successfully');
+          } else {
+            console.error('Failed to submit data:', response.status);
+          }
+        })
+        .catch(error => {
+          console.error('An error occurred:', error);
+        });
+    };
+
+    const handleEditTDDSubmit = e => {
+
+      e.preventDefault();
+
+      const updatedData = {id: entryId, testName: testName, testCode: testCode, testStatus: testStatus};
+
+
+    // Send the updated data to the server
+    
+      fetch(`http://localhost:8080/api/TDDInformation/edit/${entryId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(updatedData)
+        })
+        .then(response => response.json())
+        .then(data => {
+          // Handle success or update UI
+          console.log('Updated data:', data);
+        })
+        .catch(error => {
+          // Handle error or update UI
+          console.log('Error updating data:', error,);
+        });
+      };
+      
 
 
   return (
@@ -179,10 +214,12 @@ function App() {
         <Routes>
         <Route path="/" element={< HomePage />} />
         <Route path="/about" element={< AboutPage />} />
-        <Route path="/NewProject" element={< ProjectInfoContainer NewProjectForm handleProjectNameChange = {handleProjectNameChange} handleDescriptionChange = {handleProjectDescriptionChange} allEntries = {allEntries} handleProjectAim1Change={handleProjectAim1Change} handleProjectAim2Change={handleProjectAim2Change} handleProjectAim3Change={handleProjectAim3Change} handleProjectNotesChange = {handleProjectNotesChange} handleNewProjectSubmit = {handleNewProjectSubmit} />} />
+        <Route path="/NewProject" element={< ProjectInfoContainer NewProjectForm handleProjectNameChange = {handleProjectNameChange} handleDescriptionChange = {handleProjectDescriptionChange} allProjectInformation = {allProjectInformation} handleProjectAim1Change={handleProjectAim1Change} handleProjectAim2Change={handleProjectAim2Change} handleProjectAim3Change={handleProjectAim3Change} handleProjectNotesChange = {handleProjectNotesChange} handleNewProjectSubmit = {handleNewProjectSubmit} />} />
         <Route path="/MyCollection" element={< MyCollectionContainer />} />
-        <Route path="/MyCollection/TDD" element={< TDDContainer handleTestNameChange={handleTestNameChange} handleTestCodeChange={handleTestCodeChange} handleTestStatusChange={handleTestStatusChange} handleTDDSubmit={handleTDDSubmit} />} />
-        <Route path= "MyCollection/ProjectInformation" element={< ProjectInformationContainer allEntries={allEntries} />}/>
+        <Route path="/MyCollection/TDDInformation" element={< TDDContainer allTDDInformation={allTDDInformation} handleTestNameChange={handleTestNameChange} handleTestCodeChange={handleTestCodeChange} handleTestStatusChange={handleTestStatusChange} handleTDDSubmit={handleTDDSubmit} />} />
+        <Route path="/MyCollection/TDDInformation/edit/:id" element={< EditTDDForm allTDDInformation={allTDDInformation} handleTestNameChange={handleTestNameChange} handleTestCodeChange={handleTestCodeChange} handleTestStatusChange={handleTestStatusChange} handleEditTDDSubmit={handleEditTDDSubmit} />} />
+        <Route path= "/MyCollection/ProjectInformation" element={< ProjectInformationContainer allProjectInformation={allProjectInformation} />}/>
+        <Route path= "/MyCollection/ProjectInformation/edit/:id" element={< EditProjectForm handleEditProjectSubmit={handleEditProjectSubmit} handleProjectNameChange = {handleProjectNameChange} handleDescriptionChange = {handleProjectDescriptionChange} allProjectInformation = {allProjectInformation} handleProjectAim1Change={handleProjectAim1Change} handleProjectAim2Change={handleProjectAim2Change} handleProjectAim3Change={handleProjectAim3Change} handleProjectNotesChange = {handleProjectNotesChange} handleNewProjectSubmit = {handleNewProjectSubmit} />}/>
         </Routes>
     </Router>
   );

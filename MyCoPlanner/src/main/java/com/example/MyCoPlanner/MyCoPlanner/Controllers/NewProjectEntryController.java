@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/NewProjectInformation")
+@RequestMapping("/api/NewProjectInformation")
 public class NewProjectEntryController {
 
     private final NewProjectEntryServices newProjectEntryServices;
@@ -25,7 +25,8 @@ public class NewProjectEntryController {
     }
 
     @PutMapping(value = "/edit/{id}")
-    public ResponseEntity updateEntry(@RequestBody NewProjectEntry newProjectEntry){
+    public ResponseEntity updateEntry(@RequestBody NewProjectEntry newProjectEntry, @PathVariable(name = "id") String id){
+        newProjectEntry.setId(id);
         newProjectEntryServices.updateEntry(newProjectEntry);
         return ResponseEntity.ok().build();
     }
