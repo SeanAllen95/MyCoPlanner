@@ -47,6 +47,11 @@ function App() {
   const handleTestCodeChange = (ev) => setTestCode(ev.target.value);
   const handleTestStatusChange = (ev) => setTestStatus(ev.target.value);
 
+  // Get the id from the URL
+
+  const url = window.location.href;
+  const entryId = url.substring(url.lastIndexOf('/') + 1);
+
 
   // API request States
   const [allProjectInformation, setAllProjectInformation] = useState(null)
@@ -58,33 +63,26 @@ function App() {
     getProjectInformation();
   }, [])
 
-const getProjectInformation = function(){
-        fetch('http://localhost:8080/api/NewProjectInformation')
+  const getProjectInformation = function(){
+          fetch('http://localhost:8080/api/NewProjectInformation')
+          .then(response => response.json())
+          .then(allProjectInformation => setAllProjectInformation(allProjectInformation),
+      )
+  }
+
+  useEffect(() => {
+    getTDDInformation();
+  }, [])
+
+  const getTDDInformation = function(){
+        fetch('http://localhost:8080/api/TDDInformation')
         .then(response => response.json())
-        .then(allProjectInformation => setAllProjectInformation(allProjectInformation),
+        .then(allTDDInformation => setAllTDDInformation(allTDDInformation),
     )
-}
-
-useEffect(() => {
-  getTDDInformation();
-}, [])
-
-const getTDDInformation = function(){
-      fetch('http://localhost:8080/api/TDDInformation')
-      .then(response => response.json())
-      .then(allTDDInformation => setAllTDDInformation(allTDDInformation),
-  )
-}
-   
-
-  // const {entryId} = useParams()
-
-  const url = window.location.href;
-  const entryId = url.substring(url.lastIndexOf('/') + 1);
-  // console.log('Entry ID:', entryId);
+  }
 
 
-  // Handle new project submit
+  // Handle Project submissions
 
   const handleNewProjectSubmit = () => {
       const data = {projectName: projectName, projectDescription: projectDescription, projectAim1:  projectAim1, projectAim2: projectAim2, projectAim3: projectAim3, projectNotes: projectNotes};
@@ -134,26 +132,24 @@ const getTDDInformation = function(){
         });
       };
 
-  // Delete a form
-
-  // const deleteEntry = (entryId) => {
-  //   fetch(`http://localhost:8080/entries/delete/${entryId}`, {
-  //     method: 'DELETE'
-  //   })
-  //     .then(response => {
-  //       if (response.ok) {
-  //         // Handle success or update UI
-  //         console.log('Entry deleted successfully');
-  //       } else {
-  //         // Handle error or update UI
-  //         console.log('Failed to delete entry');
-  //       }
-  //     })
-  //     .catch(error => {
-  //       // Handle error or update UI
-  //       console.log('Error deleting entry:', error);
-  //     });
-  // };
+    const deleteTDDEntry = (entryId) => {
+      fetch(`http://localhost:8080/api/TDD/delete/${entryId}`, {
+        method: 'DELETE'
+      })
+        .then(response => {
+          if (response.ok) {
+            // Handle success or update UI
+            console.log('Entry deleted successfully');
+          } else {
+            // Handle error or update UI
+            console.log('Failed to delete entry');
+          }
+        })
+        .catch(error => {
+          // Handle error or update UI
+          console.log('Error deleting entry:', error);
+        });
+    };
 
   // Handle TDD submit
 
@@ -216,8 +212,9 @@ const getTDDInformation = function(){
         <Route path="/about" element={< AboutPage />} />
         <Route path="/NewProject" element={< ProjectInfoContainer NewProjectForm handleProjectNameChange = {handleProjectNameChange} handleDescriptionChange = {handleProjectDescriptionChange} allProjectInformation = {allProjectInformation} handleProjectAim1Change={handleProjectAim1Change} handleProjectAim2Change={handleProjectAim2Change} handleProjectAim3Change={handleProjectAim3Change} handleProjectNotesChange = {handleProjectNotesChange} handleNewProjectSubmit = {handleNewProjectSubmit} />} />
         <Route path="/MyCollection" element={< MyCollectionContainer />} />
-        <Route path="/MyCollection/TDDInformation" element={< TDDContainer allTDDInformation={allTDDInformation} handleTestNameChange={handleTestNameChange} handleTestCodeChange={handleTestCodeChange} handleTestStatusChange={handleTestStatusChange} handleTDDSubmit={handleTDDSubmit} />} />
+        <Route path="/MyCollection/TDDInformation" element={< TDDContainer deleteTDDEntry={deleteTDDEntry} allTDDInformation={allTDDInformation} handleTestNameChange={handleTestNameChange} handleTestCodeChange={handleTestCodeChange} handleTestStatusChange={handleTestStatusChange} handleTDDSubmit={handleTDDSubmit} />} />
         <Route path="/MyCollection/TDDInformation/edit/:id" element={< EditTDDForm allTDDInformation={allTDDInformation} handleTestNameChange={handleTestNameChange} handleTestCodeChange={handleTestCodeChange} handleTestStatusChange={handleTestStatusChange} handleEditTDDSubmit={handleEditTDDSubmit} />} />
+        {/* <Route path="/MyCollection/TDDInformation/delete/:id" element={< EditTDDForm deleteTDDEntry={deleteTDDEntry} allTDDInformation={allTDDInformation} handleTestNameChange={handleTestNameChange} handleTestCodeChange={handleTestCodeChange} handleTestStatusChange={handleTestStatusChange} handleEditTDDSubmit={handleEditTDDSubmit} />} /> */}
         <Route path= "/MyCollection/ProjectInformation" element={< ProjectInformationContainer allProjectInformation={allProjectInformation} />}/>
         <Route path= "/MyCollection/ProjectInformation/edit/:id" element={< EditProjectForm handleEditProjectSubmit={handleEditProjectSubmit} handleProjectNameChange = {handleProjectNameChange} handleDescriptionChange = {handleProjectDescriptionChange} allProjectInformation = {allProjectInformation} handleProjectAim1Change={handleProjectAim1Change} handleProjectAim2Change={handleProjectAim2Change} handleProjectAim3Change={handleProjectAim3Change} handleProjectNotesChange = {handleProjectNotesChange} handleNewProjectSubmit = {handleNewProjectSubmit} />}/>
         </Routes>

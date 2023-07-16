@@ -10,7 +10,8 @@ const ProjectInfoContainer = ({handleNewProjectSubmit, handleProjectNameChange, 
 return (
     <>
     <h1>Start a new project!</h1>
-    <h3>What is the name of the project? This can be changed later</h3>
+    <h3>Begin by answering the questions below!</h3>
+    <h3>Answers can be left blank if needed</h3>
     <NewProjectForm handleProjectNameChange = {handleProjectNameChange} handleDescriptionChange = {handleProjectDescriptionChange} allEntries = {allEntries} handleProjectAim1Change={handleProjectAim1Change} handleProjectAim2Change={handleProjectAim2Change} handleProjectAim3Change={handleProjectAim3Change} handleProjectNotesChange = {handleProjectNotesChange} handleNewProjectSubmit = {handleNewProjectSubmit} />
 
   
