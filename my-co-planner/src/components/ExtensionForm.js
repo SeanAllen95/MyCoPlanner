@@ -1,13 +1,13 @@
 import React, {Component, useState, useEffect} from 'react';
 
 
-const EditTDDForm = ({currentPage, category, entry1, handleCategoryChange, handleEntry1Change, entry2,  handleEntry2Change, entry3, handleEntry3Change, entry4, handleEntry4Change, entry5, handleEntry5Change, entry6, handleEntry6Change, entry7, handleEntry7Change, entry8, handleEntry8Change, entryNotes, handleEntryNotesChange, handleEditProjectSubmit, deleteProjectEntry}) => {
+const ExtensionForm = ({currentPage, category, handleCategoryChange, entry1,handleEntry1Change, entry2,  handleEntry2Change, entry3, handleEntry3Change, entry4, handleEntry4Change, entry5, handleEntry5Change, entry6, handleEntry6Change, entry7, handleEntry7Change, entry8, handleEntry8Change, entryNotes, handleEntryNotesChange, handleProjectSubmit}) => {
       
 
     return (
         <>
-        <h1>Edit test</h1>
-        <form onSubmit={handleEditProjectSubmit}>
+        <h1>Add extensions!</h1>
+        <form onSubmit={handleProjectSubmit}>
 
             <label htmlFor={currentPage}>Category</label>
             <input type='hidden' id={currentPage} value={category} /><br/>
@@ -40,11 +40,10 @@ const EditTDDForm = ({currentPage, category, entry1, handleCategoryChange, handl
             <input type='text' id="entryNotes" value={entryNotes} onChange={handleEntryNotesChange}/><br/>
 
             <input type="submit" name="submit" value="Save" />
-            </form>
-        <button onClick={deleteProjectEntry}>Delete test</button>
+        </form>
+
         </>
         )
-
 }
 
-export default EditTDDForm;
+export default ExtensionForm;
