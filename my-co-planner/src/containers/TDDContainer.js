@@ -3,28 +3,23 @@ import TDDInformation from "../components/TDDInformation";
 import { Link } from "react-router-dom";
 
 
-const TDDContainer = ({deleteTDDEntry, allTDDInformation, handleTestNameChange, handleTestCodeChange, handleTestStatusChange, handleTDDSubmit}) => {
+const TDDContainer = ({currentPage, handleCategoryChange, handleEntry1Change, handleEntry2Change, handleEntry3Change, handleEntry4Change, handleEntry5Change, handleEntry6Change, handleEntry7Change, handleEntry8Change, handleEntryNotesChange, allProjectInformation,  handleProjectSubmit}) => {
 
-    const tddInformation = allTDDInformation?.map((entry) => {
+    const tddInformation = allProjectInformation?.map((entry) => {
+
+        if (entry.category == "TDDInformation?submit=Save" || entry.category == "TDDInformation"){
         return (
-          <li key={entry.id}>{entry.testName} {entry.testCode} {entry.testStatus} <Link to={`/MyCollection/TDDInformation/edit/${entry.id}`}>Edit Test details</Link><button onClick={deleteTDDEntry}>Delete test</button></li>
+          <li key={entry.id}>{entry.entry1} {entry.entry2} <Link to={`/MyCollection/TDDInformation/edit/${entry.id}`}>Edit Test details</Link></li>
         );
-      });
+}});
 
     return(
         <>
-        
-
         <h1>This is the TDD container</h1>
-        <TDDForm handleTestNameChange={handleTestNameChange} handleTestCodeChange={handleTestCodeChange} handleTestStatusChange={handleTestStatusChange} handleTDDSubmit={handleTDDSubmit}/>
-        <article className="TDDContainer">
-        <TDDInformation allProjectInformation={allTDDInformation} tddInformation={tddInformation} />
-        </article>
+        <TDDForm currentPage={currentPage} handleCategoryChange = {handleCategoryChange} handleEntry1Change={handleEntry1Change} handleEntry2Change={handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange} handleProjectSubmit = {handleProjectSubmit}/>
+        <TDDInformation tddInformation={tddInformation} />
         </>
-
     )
-
-
 }
 
 export default TDDContainer;

@@ -1,34 +1,43 @@
 import React, { useState, useEffect } from 'react';
 
-function EditProjectForm({ProjectForm, handleNewProjectFormChange, ProjectDescription, handleDescriptionChange, ProjectName, handleProjectNameChange, Aim1, handleProjectAim1Change, Aim2, handleProjectAim2Change, Aim3, handleProjectAim3Change, handleProjectNotesChange, notes, handleEditProjectSubmit}) {
+function EditProjectForm({currentPage, category, entry1,handleEntry1Change, entry2,  handleEntry2Change, entry3, handleEntry3Change, entry4, handleEntry4Change, entry5, handleEntry5Change, entry6, handleEntry6Change, entry7, handleEntry7Change, entry8, handleEntry8Change, entryNotes, handleEntryNotesChange, handleEditProjectSubmit}) {
 
   return (
     <>
       <form onSubmit={handleEditProjectSubmit}>
 
-        <label htmlFor="ProjectForm">EditProjectForm</label>
-        <input type='hidden' id="ProjectForm" value={ProjectForm} onChange={handleNewProjectFormChange} /><br/>
+<label htmlFor={currentPage}>Category</label>
+<input type='hidden' id={currentPage} value={category} /><br/>
 
-        <label htmlFor="ProjectName">Name of the project</label>
-        <input type='text' id="ProjectName" value={ProjectName} onChange={handleProjectNameChange}/><br/>
+<label htmlFor="entry1">Entry1</label>
+<input type='text' id="entry1" value={entry1} onChange={handleEntry1Change}/><br/>
 
-        <label htmlFor="ProjectDescription">Description of the project</label>
-        <input type='text' id="ProjectDescription" value={ProjectDescription} onChange={handleDescriptionChange}/><br/>
+<label htmlFor="entry2">Entry2</label>
+<input type='text' id="entry2" value={entry2} onChange={handleEntry2Change}/><br/>
 
-        <label htmlFor="Aim1">First aim of the project</label>
-        <input type='text' id="Aim1" value={Aim1} onChange={handleProjectAim1Change}/><br/>
+<label htmlFor="entry3">Entry3</label>
+<input type='text' id="entry3" value={entry3} onChange={handleEntry3Change}/><br/>
 
-        <label htmlFor="Aim2">Second aim of the project</label>
-        <input type='text' id="Aim2" value={Aim2} onChange={handleProjectAim2Change}/><br/>
+<label htmlFor="entry4">Entry4</label>
+<input type='text' id="entry4" value={entry4} onChange={handleEntry4Change}/><br/>
 
-        <label htmlFor="Aim3">Third aim of the Project</label>
-        <input type='text' id="Aim3" value={Aim3} onChange={handleProjectAim3Change}/><br/>
+<label htmlFor="entry5">Entry5</label>
+<input type='text' id="entry5" value={entry5} onChange={handleEntry5Change}/><br/>
 
-        <label htmlFor="notes">Add extra notes here</label>
-        <input type='text' id="notes" value={notes} onChange={handleProjectNotesChange}/><br/>
+<label htmlFor="entry6">Entry6</label>
+<input type='text' id="entry6" value={entry6} onChange={handleEntry6Change}/><br/>
 
-        <input type="submit" name="submit" value="Update Project" />
-        </form>
+<label htmlFor="entry7">Entry7</label>
+<input type='text' id="entry7" value={entry7} onChange={handleEntry7Change}/><br/>
+
+<label htmlFor="entry8">Entry8</label>
+<input type='text' id="entry8" value={entry8} onChange={handleEntry8Change}/><br/>
+
+<label htmlFor="entryNotes">Add extra notes here</label>
+<input type='text' id="entryNotes" value={entryNotes} onChange={handleEntryNotesChange}/><br/>
+
+<input type="submit" name="submit" value="Save" />
+</form>
     </>
   );
 }

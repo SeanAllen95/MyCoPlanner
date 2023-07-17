@@ -3,17 +3,11 @@ import ProjectInformation from "../components/ProjectInformation";
 
 const ProjectInformationContainer = ({allProjectInformation}) => {
 
-    const projectInformation = allProjectInformation?.map((entry) => {
-        return (
-          <li key={entry.id}>{entry.projectName} {entry.projectDescription} {entry.projectAim1} {entry.projectAim2} {entry.projectAim3} {entry.projectNotes}</li>
-        );
-      });
+    const ifCategory = allProjectInformation?.map((form) => {
 
-    const ifProjectForm = allProjectInformation?.map((form) => {
-
-      if (form.projectForm == "projectForm"){
-      return(
-        <li key={form.id}>{form.projectForm} {form.projectName}  {form.projectDescription} {form.projectAim1} {form.projectAim2} {form.projectAim3} {form.projectNotes}</li>
+      if (form.category == "NewProject" || form.category == "ProjectInformation"){
+        return(
+          <li key={form.id}>{form.category} {form.entry1}  {form.entry2} {form.entryNotes}</li>
 
       );
 }});
@@ -21,7 +15,7 @@ const ProjectInformationContainer = ({allProjectInformation}) => {
     return (
         <>
             <h1>Here is your project information</h1>
-            <ProjectInformation projectInformation={projectInformation} allProjectInformation={allProjectInformation} ifProjectForm={ifProjectForm}/>
+            <ProjectInformation allProjectInformation={allProjectInformation} ifCategory={ifCategory}/>
         </>
     )
 

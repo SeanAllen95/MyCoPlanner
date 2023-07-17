@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 
-const ProjectInformation = ({ifProjectForm, projectInformation, allProjectInformation}) => {
+const ProjectInformation = ({ifCategory, allProjectInformation}) => {
 
     const projectId = allProjectInformation?.map((entry) => {
+        if (entry.category == "ProjectInformation" || entry.category == "NewProject")
         return (entry.id);
+       
       });
 
 
@@ -11,8 +13,8 @@ const ProjectInformation = ({ifProjectForm, projectInformation, allProjectInform
     return (
         <>
         <p>Project information</p>
-        <p>{projectInformation}</p>
-        <p>{ifProjectForm}</p>
+        {/* <p>{projectInformation}</p> */}
+        <p>{ifCategory}</p>
         <p><Link to={`/MyCollection/ProjectInformation/edit/${projectId}`}>Edit Project details</Link></p>
 
         </>
