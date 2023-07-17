@@ -52,6 +52,11 @@ function App() {
   const url = window.location.href;
   const entryId = url.substring(url.lastIndexOf('/') + 1);
 
+  // Get the current page
+
+  const purl = window.location.href;
+  const currentPage = purl.substring(url.lastIndexOf('/') + 1);
+
 
   // API request States
   const [allProjectInformation, setAllProjectInformation] = useState(null)
@@ -85,7 +90,7 @@ function App() {
   // Handle Project submissions
 
   const handleNewProjectSubmit = () => {
-      const data = {projectName: projectName, projectDescription: projectDescription, projectAim1:  projectAim1, projectAim2: projectAim2, projectAim3: projectAim3, projectNotes: projectNotes};
+      const data = {projectForm: currentPage, projectName: projectName, projectDescription: projectDescription, projectAim1:  projectAim1, projectAim2: projectAim2, projectAim3: projectAim3, projectNotes: projectNotes};
       
       fetch('http://localhost:8080/api/NewProjectInformation', {
           method: 'POST',
@@ -210,7 +215,7 @@ function App() {
         <Routes>
         <Route path="/" element={< HomePage />} />
         <Route path="/about" element={< AboutPage />} />
-        <Route path="/NewProject" element={< ProjectInfoContainer NewProjectForm handleProjectNameChange = {handleProjectNameChange} handleDescriptionChange = {handleProjectDescriptionChange} allProjectInformation = {allProjectInformation} handleProjectAim1Change={handleProjectAim1Change} handleProjectAim2Change={handleProjectAim2Change} handleProjectAim3Change={handleProjectAim3Change} handleProjectNotesChange = {handleProjectNotesChange} handleNewProjectSubmit = {handleNewProjectSubmit} />} />
+        <Route path="/NewProject" element={< ProjectInfoContainer NewProjectForm currentPage={currentPage} handleProjectNameChange = {handleProjectNameChange} handleDescriptionChange = {handleProjectDescriptionChange} allProjectInformation = {allProjectInformation} handleProjectAim1Change={handleProjectAim1Change} handleProjectAim2Change={handleProjectAim2Change} handleProjectAim3Change={handleProjectAim3Change} handleProjectNotesChange = {handleProjectNotesChange} handleNewProjectSubmit = {handleNewProjectSubmit} />} />
         <Route path="/MyCollection" element={< MyCollectionContainer />} />
         <Route path="/MyCollection/TDDInformation" element={< TDDContainer deleteTDDEntry={deleteTDDEntry} allTDDInformation={allTDDInformation} handleTestNameChange={handleTestNameChange} handleTestCodeChange={handleTestCodeChange} handleTestStatusChange={handleTestStatusChange} handleTDDSubmit={handleTDDSubmit} />} />
         <Route path="/MyCollection/TDDInformation/edit/:id" element={< EditTDDForm allTDDInformation={allTDDInformation} handleTestNameChange={handleTestNameChange} handleTestCodeChange={handleTestCodeChange} handleTestStatusChange={handleTestStatusChange} handleEditTDDSubmit={handleEditTDDSubmit} />} />

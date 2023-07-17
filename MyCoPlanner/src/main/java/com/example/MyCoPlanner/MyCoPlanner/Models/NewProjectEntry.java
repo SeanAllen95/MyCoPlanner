@@ -12,6 +12,9 @@ public class NewProjectEntry {
     @Id
     private String id;
 
+    @Field(name ="projectForm")
+    private String projectForm;
+
     @Field(name ="projectName")
     private String projectName;
 
@@ -33,8 +36,9 @@ public class NewProjectEntry {
     public NewProjectEntry() {
     }
 
-    public NewProjectEntry(String id, String projectName, String projectDescription, String projectAim1, String projectAim2, String projectAim3, String projectNotes) {
+    public NewProjectEntry(String id, String projectForm, String projectName, String projectDescription, String projectAim1, String projectAim2, String projectAim3, String projectNotes) {
         this.id = id;
+        this.projectForm = projectForm;
         this.projectName = projectName;
         this.projectDescription = projectDescription;
         this.projectAim1 = projectAim1;
@@ -49,6 +53,14 @@ public class NewProjectEntry {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getProjectForm() {
+        return projectForm;
+    }
+
+    public void setProjectForm(String projectForm) {
+        this.projectForm = projectForm;
     }
 
     public String getProjectName() {

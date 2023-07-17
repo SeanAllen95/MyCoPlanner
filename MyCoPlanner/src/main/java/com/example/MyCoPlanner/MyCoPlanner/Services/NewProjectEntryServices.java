@@ -24,6 +24,7 @@ public class NewProjectEntryServices {
                 .orElseThrow(() -> new RuntimeException(String.format("Cannot find Project Entry by id %s", newProjectEntry.getId())));
 
         savedNewProjectEntry.setProjectName(newProjectEntry.getProjectName());
+        savedNewProjectEntry.setProjectForm(newProjectEntry.getProjectForm());
         savedNewProjectEntry.setProjectDescription(newProjectEntry.getProjectDescription());
         savedNewProjectEntry.setProjectAim1(newProjectEntry.getProjectAim1());
         savedNewProjectEntry.setProjectAim2(newProjectEntry.getProjectAim2());

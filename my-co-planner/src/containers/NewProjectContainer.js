@@ -1,18 +1,21 @@
 import NewProjectForm from '../components/NewProjectForm';
 import React, {Component, useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 
 
 const ProjectInfoContainer = ({handleNewProjectSubmit, handleProjectNameChange, handleProjectDescriptionChange, handleProjectAim1Change, handleProjectAim2Change, handleProjectAim3Change, handleProjectNotesChange, allEntries }) =>{
 
+    const url = window.location.href;
+    const currentPage = url.substring(url.lastIndexOf('/') + 1);
 
 return (
     <>
     <h1>Start a new project!</h1>
     <h3>Begin by answering the questions below!</h3>
     <h3>Answers can be left blank if needed</h3>
-    <NewProjectForm handleProjectNameChange = {handleProjectNameChange} handleDescriptionChange = {handleProjectDescriptionChange} allEntries = {allEntries} handleProjectAim1Change={handleProjectAim1Change} handleProjectAim2Change={handleProjectAim2Change} handleProjectAim3Change={handleProjectAim3Change} handleProjectNotesChange = {handleProjectNotesChange} handleNewProjectSubmit = {handleNewProjectSubmit} />
+    <NewProjectForm currentPage={currentPage} handleProjectNameChange = {handleProjectNameChange} handleDescriptionChange = {handleProjectDescriptionChange} allEntries = {allEntries} handleProjectAim1Change={handleProjectAim1Change} handleProjectAim2Change={handleProjectAim2Change} handleProjectAim3Change={handleProjectAim3Change} handleProjectNotesChange = {handleProjectNotesChange} handleNewProjectSubmit = {handleNewProjectSubmit} />
 
   
   

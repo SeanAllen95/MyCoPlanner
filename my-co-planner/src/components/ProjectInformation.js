@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const ProjectInformation = ({projectInformation, allProjectInformation}) => {
+const ProjectInformation = ({ifProjectForm, projectInformation, allProjectInformation}) => {
 
     const projectId = allProjectInformation?.map((entry) => {
         return (entry.id);
@@ -12,6 +12,7 @@ const ProjectInformation = ({projectInformation, allProjectInformation}) => {
         <>
         <p>Project information</p>
         <p>{projectInformation}</p>
+        <p>{ifProjectForm}</p>
         <p><Link to={`/MyCollection/ProjectInformation/edit/${projectId}`}>Edit Project details</Link></p>
 
         </>

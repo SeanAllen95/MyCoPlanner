@@ -9,10 +9,19 @@ const ProjectInformationContainer = ({allProjectInformation}) => {
         );
       });
 
+    const ifProjectForm = allProjectInformation?.map((form) => {
+
+      if (form.projectForm == "projectForm"){
+      return(
+        <li key={form.id}>{form.projectForm} {form.projectName}  {form.projectDescription} {form.projectAim1} {form.projectAim2} {form.projectAim3} {form.projectNotes}</li>
+
+      );
+}});
+
     return (
         <>
             <h1>Here is your project information</h1>
-            <ProjectInformation projectInformation={projectInformation} allProjectInformation={allProjectInformation}/>
+            <ProjectInformation projectInformation={projectInformation} allProjectInformation={allProjectInformation} ifProjectForm={ifProjectForm}/>
         </>
     )
 

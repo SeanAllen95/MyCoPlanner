@@ -13,10 +13,13 @@ const TDDContainer = ({deleteTDDEntry, allTDDInformation, handleTestNameChange, 
 
     return(
         <>
+        
 
         <h1>This is the TDD container</h1>
         <TDDForm handleTestNameChange={handleTestNameChange} handleTestCodeChange={handleTestCodeChange} handleTestStatusChange={handleTestStatusChange} handleTDDSubmit={handleTDDSubmit}/>
+        <article className="TDDContainer">
         <TDDInformation allProjectInformation={allTDDInformation} tddInformation={tddInformation} />
+        </article>
         </>
 
     )

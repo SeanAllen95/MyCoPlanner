@@ -1,13 +1,13 @@
 
-const NewProjectForm = ({ProjectForm, handleNewProjectFormChange, ProjectDescription, handleDescriptionChange, ProjectName, handleProjectNameChange, Aim1, handleProjectAim1Change, Aim2, handleProjectAim2Change, Aim3, handleProjectAim3Change, handleProjectNotesChange, notes, handleNewProjectSubmit}) => {
+const NewProjectForm = ({currentPage, ProjectForm, handleNewProjectFormChange, ProjectDescription, handleDescriptionChange, ProjectName, handleProjectNameChange, Aim1, handleProjectAim1Change, Aim2, handleProjectAim2Change, Aim3, handleProjectAim3Change, handleProjectNotesChange, notes, handleNewProjectSubmit}) => {
 
 
     return(
         <>
         <form onSubmit={handleNewProjectSubmit}>
 
-            <label htmlFor="ProjectForm">NewProjectForm</label>
-            <input type='hidden' id="ProjectForm" value={ProjectForm} onChange={handleNewProjectFormChange} /><br/>
+            <label htmlFor={currentPage}>NewProjectForm</label>
+            <input type='hidden' id={currentPage} value={ProjectForm} onChange={handleNewProjectFormChange} /><br/>
 
             <label htmlFor="ProjectName">Name of the project</label>
             <input type='text' id="ProjectName" value={ProjectName} onChange={handleProjectNameChange}/><br/>
