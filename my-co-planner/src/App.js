@@ -5,9 +5,6 @@ import { BrowserRouter as Router, Routes, Route, useParams} from "react-router-d
 import NavBar from './components/NavBar';
 import AboutPage from './components/About'
 import HomePage from './components/Home'
-import NewProjectPage from './components/ProjectForm'
-import TDDPage from './components/TDDForm'
-import MVPContainer from './containers/NewProjectContainer';
 import EditProjectForm from './components/EditProjectForm';
 import ProjectInfoContainer from './containers/NewProjectContainer';
 import MyCollectionContainer from './containers/MyCollectionContainer';
@@ -20,7 +17,10 @@ import ExtensionContainer from './containers/ExtensionContainer'
 import EditExtensionForm from './components/EditExtensionForm';
 import PotentialChallengesContainer from './containers/PotentialChallengesContainer';
 import EditPotentialChallengesForm from './components/EditPotentialChallengesForm';
-
+import ToolsAndLanguagesContainer from './containers/ToolsAndLanguagesContainer';
+import EditToolsAndLanguagesForm from './components/EditToolsAndLanguages';
+import FolderContainer from './containers/FolderContainer';
+import EditFolderForm from './components/EditFolderForm'
 
 function App() {
 
@@ -179,6 +179,10 @@ function App() {
         <Route path="/MyCollection/ExtensionInformation/edit/:id" element={< EditExtensionForm ExtensionContainer allProjectInformation={allProjectInformation} handleEditProjectSubmit={handleEditProjectSubmit} handleProjectSubmit = {handleProjectSubmit} currentPage={currentPage} handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange}/>}/>
         <Route path="/MyCollection/PotentialChallenges" element={< PotentialChallengesContainer allProjectInformation={allProjectInformation} handleProjectSubmit = {handleProjectSubmit} currentPage={currentPage} handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange}/>}/>
         <Route path="/MyCollection/PotentialChallenges/edit/:id" element={< EditPotentialChallengesForm PotentialChallengesContainer allProjectInformation={allProjectInformation} handleEditProjectSubmit={handleEditProjectSubmit} handleProjectSubmit = {handleProjectSubmit} currentPage={currentPage} handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange}/>}/>
+        <Route path="/MyCollection/ToolsAndLanguages" element={< ToolsAndLanguagesContainer allProjectInformation={allProjectInformation} handleProjectSubmit = {handleProjectSubmit} currentPage={currentPage} handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange}/>}/>
+        <Route path="/MyCollection/ToolsAndLanguages/edit/:id" element={< EditToolsAndLanguagesForm ToolsAndLanguagesContainer allProjectInformation={allProjectInformation} handleEditProjectSubmit={handleEditProjectSubmit} handleProjectSubmit = {handleProjectSubmit} currentPage={currentPage} handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange}/>}/>
+        <Route path="/MyCollection/FolderAndFileStructure" element={< FolderContainer allProjectInformation={allProjectInformation} handleProjectSubmit = {handleProjectSubmit} currentPage={currentPage} handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange}/>}/>
+        <Route path="/MyCollection/FolderAndFileStructure/edit/:id" element={< EditFolderForm FolderContainer allProjectInformation={allProjectInformation} handleEditProjectSubmit={handleEditProjectSubmit} handleProjectSubmit = {handleProjectSubmit} currentPage={currentPage} handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange}/>}/>
 
         </Routes>
     </Router>

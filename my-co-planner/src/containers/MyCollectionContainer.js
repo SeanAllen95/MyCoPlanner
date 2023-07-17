@@ -13,7 +13,7 @@ const MyCollectionContainer = () => {
         <p> Go to <Link to="/MyCollection/PotentialChallenges">Potential Challenges Page</Link></p>
         <p> Go to <Link to="/MyCollection/ToolsAndLanguages">Tools and Languages Page</Link></p>
         <p> Go to <Link to="/MyCollection/ScheduleInformation">Schedule Page</Link></p>
-        <p> Go to <Link to="/MyCollection/FolderStructure">Folder and File Structure Page</Link></p>
+        <p> Go to <Link to="/MyCollection/FolderAndFileStructure">Folder and File Structure Page</Link></p>
         <p> Go to <Link to="/MyCollection/ExtensionInformation">Extension Page</Link></p>
         </>
     )
