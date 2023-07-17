@@ -5,10 +5,11 @@ const ProjectInformationContainer = ({allProjectInformation}) => {
 
     const ifCategory = allProjectInformation?.map((form) => {
 
-      if (form.category == "NewProject" || form.category == "ProjectInformation"){
+      if (form.category == "NewProject" || form.category == "NewProject?submit=Save"){
         return(
-          <li key={form.id}>{form.category} {form.entry1}  {form.entry2} {form.entryNotes}</li>
-
+          <>
+          <li key={form.id}> {form.entry1}</li>
+          </>
       );
 }});
 

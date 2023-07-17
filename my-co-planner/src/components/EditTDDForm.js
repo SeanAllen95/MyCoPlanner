@@ -9,22 +9,22 @@ const EditTDDForm = ({currentPage, category, entry1, handleCategoryChange, handl
         <h1>Edit test</h1>
         <form onSubmit={handleEditProjectSubmit}>
 
-            <label htmlFor={currentPage}>Category</label>
+        <label htmlFor={currentPage}></label>
             <input type='hidden' id={currentPage} value={category} /><br/>
 
-            <label htmlFor="entry1">Entry1</label>
+            <label htmlFor="entry1">Name of the test</label>
             <input type='text' id="entry1" value={entry1} onChange={handleEntry1Change} onClick={handleCategoryChange}/><br/>
 
-            <label htmlFor="entry2">Entry2</label>
+            <label htmlFor="entry2">Why is it being tested?</label>
             <input type='text' id="entry2" value={entry2} onChange={handleEntry2Change}/><br/>
 
-            <label htmlFor="entry3">Entry3</label>
+            <label htmlFor="entry3">How it will be tested</label>
             <input type='text' id="entry3" value={entry3} onChange={handleEntry3Change}/><br/>
 
-            <label htmlFor="entry4">Entry4</label>
+            <label htmlFor="entry4">Add code for the test here</label>
             <input type='text' id="entry4" value={entry4} onChange={handleEntry4Change}/><br/>
 
-            <label htmlFor="entry5">Entry5</label>
+            {/* <label htmlFor="entry5">Entry5</label>
             <input type='text' id="entry5" value={entry5} onChange={handleEntry5Change}/><br/>
 
             <label htmlFor="entry6">Entry6</label>
@@ -34,11 +34,10 @@ const EditTDDForm = ({currentPage, category, entry1, handleCategoryChange, handl
             <input type='text' id="entry7" value={entry7} onChange={handleEntry7Change}/><br/>
 
             <label htmlFor="entry8">Entry8</label>
-            <input type='text' id="entry8" value={entry8} onChange={handleEntry8Change}/><br/>
+            <input type='text' id="entry8" value={entry8} onChange={handleEntry8Change}/><br/> */}
 
             <label htmlFor="entryNotes">Add extra notes here</label>
             <input type='text' id="entryNotes" value={entryNotes} onChange={handleEntryNotesChange}/><br/>
-
             <input type="submit" name="submit" value="Save" />
             </form>
         <button onClick={deleteProjectEntry}>Delete test</button>

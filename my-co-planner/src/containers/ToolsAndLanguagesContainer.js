@@ -1,9 +1,9 @@
 import ToolsAndLanguagesForm from "../components/ToolsAndLanguagesForm";
 import ToolsAndLanguagesInformation from "../components/ToolsAndLanguagesInformation";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 
-const ToolsAndLanguagesContainer = ({currentPage, handleCategoryChange, handleEntry1Change, handleEntry2Change, handleEntry3Change, handleEntry4Change, handleEntry5Change, handleEntry6Change, handleEntry7Change, handleEntry8Change, handleEntryNotesChange, allProjectInformation,  handleProjectSubmit}) => {
+const ToolsAndLanguagesContainer = ({handleCategoryChange, handleEntry1Change, handleEntry2Change, handleEntry3Change, handleEntry4Change, handleEntry5Change, handleEntry6Change, handleEntry7Change, handleEntry8Change, handleEntryNotesChange, allProjectInformation,  handleProjectSubmit}) => {
 
     const toolsAndLanguagesInformation = allProjectInformation?.map((entry) => {
 
@@ -11,12 +11,16 @@ const ToolsAndLanguagesContainer = ({currentPage, handleCategoryChange, handleEn
         return (
           <li key={entry.id}>{entry.entry1} {entry.entry2} <Link to={`/MyCollection/toolsAndLanguages/edit/${entry.id}`}>Edit Tools and Languages</Link></li>
         );
-}});
+        }});    
+        
+        const currentPage = useLocation()
+        const currentPageCategory = currentPage.pathname[-1]
+        console.log(currentPage.pathname)
 
     return(
         <>
         <h1>This is the Tools and Languages container</h1>
-        <ToolsAndLanguagesForm currentPage={currentPage} handleCategoryChange = {handleCategoryChange} handleEntry1Change={handleEntry1Change} handleEntry2Change={handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange} handleProjectSubmit = {handleProjectSubmit}/>
+        <ToolsAndLanguagesForm currentPageCategory={currentPageCategory} handleCategoryChange = {handleCategoryChange} handleEntry1Change={handleEntry1Change} handleEntry2Change={handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange} handleProjectSubmit = {handleProjectSubmit}/>
         <ToolsAndLanguagesInformation toolsAndLanguagesInformation={toolsAndLanguagesInformation} />
         </>
     )
