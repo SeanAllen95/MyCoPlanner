@@ -6,8 +6,8 @@ const ProjectForm = ({currentPageCategory, category, handleCategoryChange, entry
         <>
         <form onSubmit={handleProjectSubmit}>
 
-            <label htmlFor={currentPageCategory}></label>
-            <input type='hidden' id={currentPageCategory} value={category} /><br/>
+            <label htmlFor='category'></label>
+            <input type='hidden' id='category' value={currentPageCategory}/><br/>
 
             <label htmlFor="entry1">What is the name of the Project?</label><br/>
             <input type='text' id="entry1" value={entry1} onChange={handleEntry1Change} onClick={handleCategoryChange}/><br/>

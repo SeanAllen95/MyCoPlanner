@@ -8,8 +8,8 @@ import { useParams } from 'react-router-dom';
 const ProjectInfoContainer = ({handleCategoryChange, handleEntry1Change, handleEntry2Change, handleEntry3Change, handleEntry4Change, handleEntry5Change, handleEntry6Change, handleEntry7Change, handleEntry8Change, handleEntryNotesChange, allEntries,  handleProjectSubmit}) =>{
 
     const currentPage = useLocation()
-    const currentPageCategory = currentPage.pathname
-    console.log(currentPage.pathname)
+    const currentPageCategory = currentPage.pathname.slice(1)
+    console.log(currentPageCategory)
 
 return (
     <>

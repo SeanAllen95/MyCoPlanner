@@ -30,16 +30,14 @@ function App() {
 
   // Current Page State
 
-  const [currentPage, setCurrentPage] = useState()
+  const [currentPage, setCurrentPage] = useState("Category goes here")
 
   // Current Page State Handlers 
 
   const handleCurrentPageChange = (ev) => setCurrentPage(ev.target.value)
-  console.log(currentPage)
+  console.log("CURRENT STATE " + currentPage)
 
-  
 
-  
 
   // Project Form States
   const [category, setCategory] = useState(currentPage);
@@ -176,7 +174,7 @@ function App() {
         <Route path="/about" element={< AboutPage />} />
         <Route path="/NewProject" element={< ProjectInfoContainer NewProjectForm  handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} allProjectInformation = {allProjectInformation} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange} handleProjectSubmit = {handleProjectSubmit} />} />
         <Route path="/MyCollection" element={< MyCollectionContainer />} />
-        <Route path="/MyCollection/TDDInformation" element={< TDDContainer handleCurrentPageChange={handleCategoryChange} deleteProjectEntry={deleteProjectEntry} handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} allProjectInformation = {allProjectInformation} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange} handleProjectSubmit = {handleProjectSubmit}/>} />
+        <Route path="/MyCollection/TDDInformation" element={< TDDContainer setCurrentPage={setCurrentPage} handleCurrentPageChange={handleCurrentPageChange} deleteProjectEntry={deleteProjectEntry} handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} allProjectInformation = {allProjectInformation} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange} handleProjectSubmit = {handleProjectSubmit}/>} />
         <Route path="/MyCollection/TDDInformation/edit/:id" element={< EditTDDForm deleteProjectEntry={deleteProjectEntry} handleTestNameChange={handleTestNameChange} handleTestCodeChange={handleTestCodeChange} handleTestStatusChange={handleTestStatusChange}  />} />
         <Route path="/MyCollection/ProjectInformation" element={< ProjectInformationContainer allProjectInformation={allProjectInformation} />}/>
         <Route path="/MyCollection/ProjectInformation/edit/:id" element={< EditProjectForm allProjectInformation = {allProjectInformation}  handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange} handleEditProjectSubmit = {handleEditProjectSubmit} />}/>

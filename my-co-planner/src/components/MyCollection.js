@@ -4,7 +4,7 @@ const MyCollection = () => {
 
 
     return(
-        <h1>My Mushroom Collection</h1>
+        <h1>My Collection</h1>
     )
 }
 
