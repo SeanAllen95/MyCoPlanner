@@ -20,6 +20,7 @@ import ToolsAndLanguagesContainer from './containers/ToolsAndLanguagesContainer'
 import EditToolsAndLanguagesForm from './components/EditToolsAndLanguages';
 import FolderContainer from './containers/FolderContainer';
 import EditFolderForm from './components/EditFolderForm'
+import MagicMushroom from './components/MagicMushroom';
 
 function App() {
 
@@ -192,6 +193,7 @@ function App() {
         
         <Route path="/MyCollection/FolderAndFileStructure" element={< FolderContainer allProjectInformation={allProjectInformation} setCurrentPage={setCurrentPage} handleProjectSubmit = {handleProjectSubmit}  handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange}/>}/>
         <Route path="/MyCollection/FolderAndFileStructure/edit/:id" element={< EditFolderForm FolderContainer allProjectInformation={allProjectInformation} setCurrentPage={setCurrentPage} setEntryId={setEntryId} handleEditProjectSubmit={handleEditProjectSubmit} handleProjectSubmit = {handleProjectSubmit} handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange}/>}/>
+        <Route path="/MyCollection/MagicMushroom" element={ < MagicMushroom/> } />
         </Routes>
     </Router>
   </div>
