@@ -1,9 +1,10 @@
 import FolderForm from "../components/FolderForm";
 import FolderInformation from "../components/FolderInformation";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 
-const FolderContainer = ({currentPage, handleCategoryChange, handleEntry1Change, handleEntry2Change, handleEntry3Change, handleEntry4Change, handleEntry5Change, handleEntry6Change, handleEntry7Change, handleEntry8Change, handleEntryNotesChange, allProjectInformation,  handleProjectSubmit}) => {
+const FolderContainer = ({setCurrentPage, handleCategoryChange, handleEntry1Change, handleEntry2Change, handleEntry3Change, handleEntry4Change, handleEntry5Change, handleEntry6Change, handleEntry7Change, handleEntry8Change, handleEntryNotesChange, allProjectInformation,  handleProjectSubmit}) => {
 
     const folderInformation = allProjectInformation?.map((entry) => {
 
@@ -11,7 +12,14 @@ const FolderContainer = ({currentPage, handleCategoryChange, handleEntry1Change,
         return (
           <li key={entry.id}>{entry.entry1} {entry.entry2} <Link to={`/MyCollection/FolderAndFileStructure/edit/${entry.id}`}>Edit Folders</Link></li>
         );
-}});
+        }});
+
+    const theCurrentPage = useLocation()
+    const currentPage = theCurrentPage.pathname.slice(14)
+
+    useEffect(() => {
+    setCurrentPage(currentPage);
+    }, []);
 
     return(
         <>
