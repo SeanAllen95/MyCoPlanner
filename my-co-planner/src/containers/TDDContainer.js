@@ -16,7 +16,6 @@ const TDDContainer = ({setCurrentPage, handleCurrentPageChange, handleCategoryCh
 
     const theCurrentPage = useLocation()
     const currentPage = theCurrentPage.pathname.slice(14)
-    // console.log(currentPage)
 
     useEffect(() => {
         setCurrentPage(currentPage);

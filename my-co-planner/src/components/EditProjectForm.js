@@ -1,10 +1,36 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
-function EditProjectForm({currentPage, category, entry1,handleEntry1Change, entry2,  handleEntry2Change, entry3, handleEntry3Change, entry4, handleEntry4Change, entry5, handleEntry5Change, entry6, handleEntry6Change, entry7, handleEntry7Change, entry8, handleEntry8Change, entryNotes, handleEntryNotesChange, handleEditProjectSubmit}) {
+function EditProjectForm({setEntryId, allProjectInformation, setCurrentPage, category, entry1,handleEntry1Change, entry2,  handleEntry2Change, entry3, handleEntry3Change, entry4, handleEntry4Change, entry5, handleEntry5Change, entry6, handleEntry6Change, entry7, handleEntry7Change, entry8, handleEntry8Change, entryNotes, handleEntryNotesChange, handleEditProjectSubmit}) {
+
+  const pageId = useLocation()
+    const entryId = pageId.pathname.slice(39)
+    console.log(entryId)
+
+    useEffect(() => {
+        setEntryId(entryId);
+        }, []);
+
+    const theCurrentPage = useLocation()
+    const currentPage = theCurrentPage.pathname.slice(14, 32)
+    console.log(currentPage)
+
+    useEffect(() => {
+        setCurrentPage(currentPage);
+        }, []);
+
+    const projectInformation = allProjectInformation?.map((entry) => {
+
+        if (entry.id == entryId){
+        return (
+            <li key={entry.id}>{entry.entry1} {entry.entry2} {entry.entry3}</li>
+        );
+        }});
 
   return (
     <>
     <h1>Edit Project Details</h1>
+    <h2>{projectInformation}</h2>
       <form onSubmit={handleEditProjectSubmit}>
 
         <label htmlFor={currentPage}>Category</label>

@@ -1,12 +1,10 @@
 import React, {Component, useState, useEffect} from 'react';
 import { useLocation } from 'react-router-dom';
 
-
 const EditTDDForm = ({allProjectInformation, setEntryId, setCurrentPage, category, entry1, handleCategoryChange, handleEntry1Change, entry2,  handleEntry2Change, entry3, handleEntry3Change, entry4, handleEntry4Change, entry5, handleEntry5Change, entry6, handleEntry6Change, entry7, handleEntry7Change, entry8, handleEntry8Change, entryNotes, handleEntryNotesChange, handleEditProjectSubmit, deleteProjectEntry}) => {
       
     const pageId = useLocation()
     const entryId = pageId.pathname.slice(34)
-    // console.log(currentPage)
 
     useEffect(() => {
         setEntryId(entryId);
@@ -14,7 +12,6 @@ const EditTDDForm = ({allProjectInformation, setEntryId, setCurrentPage, categor
 
     const theCurrentPage = useLocation()
     const currentPage = theCurrentPage.pathname.slice(14, 28)
-    // console.log(currentPage)
 
     useEffect(() => {
         setCurrentPage(currentPage);
