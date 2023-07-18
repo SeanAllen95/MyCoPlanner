@@ -1,12 +1,37 @@
 import React, {Component, useState, useEffect} from 'react';
+import { useLocation } from 'react-router-dom';
 
 
-const EditToolsAndLanguagesForm = ({currentPage, category, entry1, handleCategoryChange, handleEntry1Change, entry2,  handleEntry2Change, entry3, handleEntry3Change, entry4, handleEntry4Change, entry5, handleEntry5Change, entry6, handleEntry6Change, entry7, handleEntry7Change, entry8, handleEntry8Change, entryNotes, handleEntryNotesChange, handleEditProjectSubmit, deleteProjectEntry}) => {
+const EditToolsAndLanguagesForm = ({setCurrentPage, setEntryId, allProjectInformation, category, entry1, handleCategoryChange, handleEntry1Change, entry2,  handleEntry2Change, entry3, handleEntry3Change, entry4, handleEntry4Change, entry5, handleEntry5Change, entry6, handleEntry6Change, entry7, handleEntry7Change, entry8, handleEntry8Change, entryNotes, handleEntryNotesChange, handleEditProjectSubmit, deleteProjectEntry}) => {
       
+
+    const pageId = useLocation()
+    const entryId = pageId.pathname.slice(37)
+
+    useEffect(() => {
+        setEntryId(entryId);
+        }, []);
+
+    const theCurrentPage = useLocation()
+    const currentPage = theCurrentPage.pathname.slice(14, 31)
+
+    useEffect(() => {
+        setCurrentPage(currentPage);
+        }, []);
+
+    const toolsInformation = allProjectInformation?.map((entry) => {
+
+        if (entry.id == entryId){
+        return (
+            <li key={entry.id}>{entry.entry1} {entry.entry2} </li>
+        );
+        }});
 
     return (
         <>
         <h1>Edit Tools and Languages</h1>
+
+        <h3>{toolsInformation}</h3>
         <form onSubmit={handleEditProjectSubmit}>
 
             <label htmlFor={currentPage}>Category</label>

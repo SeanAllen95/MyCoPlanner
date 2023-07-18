@@ -1,7 +1,8 @@
 import React, {Component, useState, useEffect} from 'react';
+import { useLocation } from 'react-router-dom';
 
 
-const ScheduleForm = ({currentPage, category, handleCategoryChange, entry1,handleEntry1Change, entry2,  handleEntry2Change, entry3, handleEntry3Change, entry4, handleEntry4Change, entry5, handleEntry5Change, entry6, handleEntry6Change, entry7, handleEntry7Change, entry8, handleEntry8Change, entryNotes, handleEntryNotesChange, handleProjectSubmit}) => {
+const ScheduleForm = ({category, currentPage, handleCategoryChange, entry1, handleEntry1Change, entry2,  handleEntry2Change, entry3, handleEntry3Change, entry4, handleEntry4Change, entry5, handleEntry5Change, entry6, handleEntry6Change, entry7, handleEntry7Change, entry8, handleEntry8Change, entryNotes, handleEntryNotesChange, handleProjectSubmit}) => {
       
 
     return (
@@ -10,7 +11,7 @@ const ScheduleForm = ({currentPage, category, handleCategoryChange, entry1,handl
         <form onSubmit={handleProjectSubmit}>
 
             <label htmlFor={currentPage}>Category</label>
-            <input type='hidden' id={currentPage} value={category} /><br/>
+            <input type='hidden' id={category} value={currentPage} /><br/>
 
             <label htmlFor="entry1">Entry1</label>
             <input type='text' id="entry1" value={entry1} onChange={handleEntry1Change} onClick={handleCategoryChange}/><br/>
