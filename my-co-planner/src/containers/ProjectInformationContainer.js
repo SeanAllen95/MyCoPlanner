@@ -3,12 +3,12 @@ import ProjectInformation from "../components/ProjectInformation";
 
 const ProjectInformationContainer = ({allProjectInformation}) => {
 
-    const ifCategory = allProjectInformation?.map((form) => {
+    const ifCategory = allProjectInformation?.map((entry) => {
 
-      if (form.category == "NewProject" || form.category == "NewProject?submit=Save"){
+      if (entry.category == "NewProject" || entry.category == "NewProject?submit=Save"){
         return(
           <>
-          <li key={form.id}> {form.entry1}</li>
+          <li key={entry.id}> {entry.entry1} </li>
           </>
       );
 }});
