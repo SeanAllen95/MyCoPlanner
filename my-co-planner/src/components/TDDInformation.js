@@ -6,7 +6,7 @@ const TDDInformation = ({tddInformation, allTDDInformation}) => {
 
     return (
         <>
-        <p>Test information</p>
+        <h2>Test Information</h2>
         <p>{tddInformation}</p>
        
 

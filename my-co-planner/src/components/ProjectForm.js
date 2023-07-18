@@ -1,5 +1,5 @@
 
-const ProjectForm = ({currentPageCategory, category, handleCategoryChange, entry1,handleEntry1Change, entry2,  handleEntry2Change, entry3, handleEntry3Change, entry4, handleEntry4Change, entry5, handleEntry5Change, entry6, handleEntry6Change, entry7, handleEntry7Change, entry8, handleEntry8Change, entryNotes, handleEntryNotesChange, handleProjectSubmit}) => {
+const ProjectForm = ({currentPage, category, handleCategoryChange, entry1,handleEntry1Change, entry2,  handleEntry2Change, entry3, handleEntry3Change, entry4, handleEntry4Change, entry5, handleEntry5Change, entry6, handleEntry6Change, entry7, handleEntry7Change, entry8, handleEntry8Change, entryNotes, handleEntryNotesChange, handleProjectSubmit}) => {
 
 
     return(
@@ -7,7 +7,7 @@ const ProjectForm = ({currentPageCategory, category, handleCategoryChange, entry
         <form onSubmit={handleProjectSubmit}>
 
             <label htmlFor='category'></label>
-            <input type='hidden' id='category' value={currentPageCategory}/><br/>
+            <input type='hidden' id='category' value={currentPage}/><br/>
 
             <label htmlFor="entry1">What is the name of the Project?</label><br/>
             <input type='text' id="entry1" value={entry1} onChange={handleEntry1Change} onClick={handleCategoryChange}/><br/>

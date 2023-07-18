@@ -2,20 +2,16 @@ import React, {Component, useState, useEffect} from 'react';
 import { useLocation } from 'react-router-dom';
 
 
-const TDDForm = ({ category, handleCurrentPageChange, entry1,handleEntry1Change, entry2,  handleEntry2Change, entry3, handleEntry3Change, entry4, handleEntry4Change, entry5, handleEntry5Change, entry6, handleEntry6Change, entry7, handleEntry7Change, entry8, handleEntry8Change, entryNotes, handleEntryNotesChange, handleProjectSubmit}) => {
+const TDDForm = ({ category, currentPage, handleCurrentPageChange, entry1,handleEntry1Change, entry2,  handleEntry2Change, entry3, handleEntry3Change, entry4, handleEntry4Change, entry5, handleEntry5Change, entry6, handleEntry6Change, entry7, handleEntry7Change, entry8, handleEntry8Change, entryNotes, handleEntryNotesChange, handleProjectSubmit}) => {
 
-    const currentPage = useLocation()
-    const currentPageCategory = currentPage.pathname.slice(14)
-    console.log(currentPageCategory)
-      
-
+    
     return (
         <>
         <h1>Add tests!</h1>
         <form onSubmit={handleProjectSubmit}>
 
             <label htmlFor={category}></label>
-            <input type='hidden' id={category} value={currentPageCategory} /><br/>
+            <input type='hidden' id={category} value={currentPage} /><br/>
 
             <label htmlFor="entry1">Name of the test</label>
             <input type='text' id="entry1" value={entry1} onChange={handleEntry1Change}/><br/>

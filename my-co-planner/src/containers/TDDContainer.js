@@ -16,7 +16,7 @@ const TDDContainer = ({setCurrentPage, handleCurrentPageChange, handleCategoryCh
 
     const theCurrentPage = useLocation()
     const currentPage = theCurrentPage.pathname.slice(14)
-    console.log(currentPage)
+    // console.log(currentPage)
 
     useEffect(() => {
         setCurrentPage(currentPage);
@@ -25,7 +25,7 @@ const TDDContainer = ({setCurrentPage, handleCurrentPageChange, handleCategoryCh
     return(
         <>
         <h1>This is the TDD container</h1>
-        <TDDForm handleEntry1Change={handleEntry1Change} handleEntry2Change={handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange} handleProjectSubmit = {handleProjectSubmit}/>
+        <TDDForm currentPage={currentPage} handleEntry1Change={handleEntry1Change} handleEntry2Change={handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange} handleProjectSubmit = {handleProjectSubmit}/>
         <TDDInformation tddInformation={tddInformation} />
         </>
     )
