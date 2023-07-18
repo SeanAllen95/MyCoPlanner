@@ -48,7 +48,7 @@ const EditTDDForm = ({allProjectInformation, setEntryId, setCurrentPage, categor
             <input type='text' id="entry3" value={entry3} onChange={handleEntry3Change}/><br/>
 
             <label htmlFor="entry4">Add code for the test here</label>
-            <input type='text' id="entry4" value={entry4} onChange={handleEntry4Change}/><br/>
+            <input type='code' id="entry4" value={entry4} onChange={handleEntry4Change}/><br/>
 
             <label htmlFor="entry5">Entry5</label>
             <input type='text' id="entry5" value={entry5} onChange={handleEntry5Change}/><br/>

@@ -3,24 +3,54 @@
 }
 .nav-bar {
   display: flex;
-  justify-content: space-between;
   font-size: 30px;
-  background-color:rgb(20, 122, 20);
+  background-color:rgb(34, 216, 34);
   font-family: Arial, Helvetica, sans-serif;
+
 }
 .link-list {
   display: flex;
   list-style: none;
+  text-decoration: none;
+}
+.link-list > li > a {
+  text-decoration: none;
+  color: darkgreen;
 }
 
 .link-list > li {
-  padding-left: 180px;
+  padding-left: 30px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-decoration: none;
 }
 
+.article-header {
+  padding-left: 50px;
+  font-size: 30px;
+}
 
+.info-article {
+  font-size: 20px;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-left: 50px;
+  padding-right: 50px;
+}
 
+#new-project-button{
+  margin-left: auto;
+  margin-right: auto;
+  margin: 50px;
+}
 
+#new-project-link {
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
+}
 
+.new-project-questions {
+  padding-left: 50px;
+}
 .user-answer {
   width: 300px;
   height: 100px;
