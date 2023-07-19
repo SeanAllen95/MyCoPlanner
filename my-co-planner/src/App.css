@@ -105,6 +105,15 @@ input[type=text] {
   font-size: large;
 }
 
+.hidden-mushroom {
+  display: grid;
+  place-items: center;
+}
+
+#mushroom-input {
+  width: 400px;
+}
+
 
 
 

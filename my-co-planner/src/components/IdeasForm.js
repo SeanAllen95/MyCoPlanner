@@ -26,7 +26,7 @@ const IdeasForm = ({ category, currentPage, handleCurrentPageChange, entry1,hand
             <label htmlFor="entry4">What other apsects of the plan will this have an effect on?</label><br/>
             <input type='text' id="entry4" value={entry4} onChange={handleEntry4Change}/><br/>
            
-            <label htmlFor="entry5">Entry5</label><br/>
+            {/* <label htmlFor="entry5">Entry5</label><br/>
             <input type='text' id="entry5" value={entry5} onChange={handleEntry5Change}/><br/>
 
             <label htmlFor="entry6">Entry6</label><br/>
@@ -36,7 +36,7 @@ const IdeasForm = ({ category, currentPage, handleCurrentPageChange, entry1,hand
             <input type='text' id="entry7" value={entry7} onChange={handleEntry7Change}/><br/>
 
             <label htmlFor="entry8">Entry8</label><br/>
-            <input type='text' id="entry8" value={entry8} onChange={handleEntry8Change}/><br/>
+            <input type='text' id="entry8" value={entry8} onChange={handleEntry8Change}/><br/> */}
 
             <label htmlFor="entryNotes">Add extra notes here</label><br/>
             <input type='text' id="entryNotes" value={entryNotes} onChange={handleEntryNotesChange}/><br/>

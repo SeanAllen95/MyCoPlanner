@@ -12,7 +12,7 @@ const ExtensionContainer = ({setCurrentPage, handleCategoryChange, handleEntry1C
 
         if (entry.category === "ExtensionInformation?submit=Save" || entry.category === "ExtensionInformation"){
         return (
-          <li key={entry.id}>{entry.entry1} {entry.entry2} {entry.entry3} {entry.entry4} {entry.entry5} {entry.entry6} {entry.entry7}<Link to={`/MyCollection/ExtensionInformation/edit/${entry.id}`}>Edit Extension details</Link></li>
+          <li key={entry.id}>Extension - {entry.entry1} <br/> Description - {entry.entry2} <br/> Other affects -  {entry.entry3} <br/> TDD - {entry.entry4} <br/> Schedule - {entry.entry5} <br/> Challenges - {entry.entry6} <br/> Extra Notes - {entry.entryNoes} <br/> <Link to={`/MyCollection/ExtensionInformation/edit/${entry.id}`}>Edit Extension details</Link></li>
         );
         }});
 

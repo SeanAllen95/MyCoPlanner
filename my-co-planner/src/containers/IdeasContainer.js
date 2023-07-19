@@ -10,7 +10,7 @@ const IdeasContainer = ({setCurrentPage, handleCurrentPageChange, handleCategory
 
         if (entry.category === "IdeasInformation?submit=Save" || entry.category === "Ideas"){
         return (
-          <li className='test-item' key={entry.id}>{entry.entry1} {entry.entry2} {entry.entry3} {entry.entryNotes}<Link to={`/MyCollection/IdeasInformation/edit/${entry.id}`}>Edit Idea details</Link></li>
+          <li className='test-item' key={entry.id}>Name - {entry.entry1} <br/> Description - {entry.entry2} <br/> Implemented - {entry.entry3} <br/> Aspects - {entry.entry4} <br/> Extra notes - {entry.entryNotes} <br/> <Link to={`/MyCollection/Ideas/edit/${entry.id}`}>Edit Idea details</Link></li>
         );
         }});
 
@@ -24,7 +24,7 @@ const IdeasContainer = ({setCurrentPage, handleCurrentPageChange, handleCategory
     return(
         <>
         <h1>Ideas Page</h1>
-        <h2>Use this page to add any Ideas you have</h2>
+        <h2>Use this page to add any ideas and notes you have</h2>
         <IdeasForm currentPage={currentPage} handleEntry1Change={handleEntry1Change} handleEntry2Change={handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange} handleProjectSubmit = {handleProjectSubmit}/>
         <IdeasInformation ideasInformation={ideasInformation} />
         </>
