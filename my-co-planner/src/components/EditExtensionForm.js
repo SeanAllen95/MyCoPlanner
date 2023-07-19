@@ -28,6 +28,7 @@ const EditExtensionForm = ({setEntryId, allProjectInformation, setCurrentPage, c
 
     return (
         <>
+        <div className="submission-container">
         <h1>Edit Extension</h1>
 
         <p>{extensionInformation}</p>
@@ -66,6 +67,7 @@ const EditExtensionForm = ({setEntryId, allProjectInformation, setCurrentPage, c
             <input type="submit" name="submit" value="Edit Extension" />
             </form>
         <button onClick={deleteProjectEntry}>Delete extension</button>
+        </div>
         </>
         )
 

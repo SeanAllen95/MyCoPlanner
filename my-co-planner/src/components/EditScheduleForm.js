@@ -29,6 +29,7 @@ const EditScheduleForm = ({setCurrentPage, setEntryId, allProjectInformation, ca
 
     return (
         <>
+        <div className="submission-container">
         <h1>Edit Deadline</h1>
 
         <p>{scheduleInformation}</p>
@@ -67,6 +68,7 @@ const EditScheduleForm = ({setCurrentPage, setEntryId, allProjectInformation, ca
             <input type="submit" name="submit" value="Edit Deadline" />
             </form>
         <button onClick={deleteProjectEntry}>Delete Deadline</button>
+        </div>
         </>
         )
 

@@ -28,6 +28,7 @@ const EditPotentialChallengesForm = ({setCurrentPage, allProjectInformation, set
 
     return (
         <>
+        <div className="submission-container">
         <h1>Edit Potential Challenge</h1>
         <p>{potentialChallengesInformation}</p>
         <form onSubmit={handleEditProjectSubmit}>
@@ -65,6 +66,7 @@ const EditPotentialChallengesForm = ({setCurrentPage, allProjectInformation, set
             <input type="submit" name="submit" value="Edit Challenge" />
             </form>
         <button onClick={deleteProjectEntry}>Delete Challenge</button>
+        </div>
         </>
         )
 

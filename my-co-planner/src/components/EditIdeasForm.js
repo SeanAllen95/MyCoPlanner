@@ -32,6 +32,7 @@ const EditIdeasForm = ({allProjectInformation, setEntryId, setCurrentPage, categ
 
     return (
         <>
+        <div className="submission-container">
         <h1>Edit the Idea</h1>
         <h3>Idea information</h3>
         <p>{ideasInformation}</p>
@@ -72,6 +73,7 @@ const EditIdeasForm = ({allProjectInformation, setEntryId, setCurrentPage, categ
             <input type="submit" name="submit" value="Save" />
             </form>
         <button onClick={deleteProjectEntry}>Delete Idea</button>
+        </div>
         </>
         )
 

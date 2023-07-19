@@ -8,7 +8,7 @@ const HiddenMushroom = () => {
   });
 
   configuration.baseOptions.headers = {
-    Authorization: "Bearer " + "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",
+    Authorization: "Bearer " + "MYAPIKEY",
   };
 
   const openai = new OpenAIApi(configuration);
@@ -39,6 +39,7 @@ const HiddenMushroom = () => {
     <>
     <section>
       <div className='hidden-mushroom'>
+      <img src="/Mushroom4.png" height='300px'></img>
         <form onSubmit={handleSubmit}>
           <input type="text" id='mushroom-input' value={prompt} placeholder="Ask the mushroom" onChange={(e) => setPrompt(e.target.value)}></input>
           <button type="submit">Ask!</button>

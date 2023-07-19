@@ -32,6 +32,7 @@ const EditTDDForm = ({allProjectInformation, setEntryId, setCurrentPage, categor
 
     return (
         <>
+        <div className="submission-container">
         <h1>Edit the information in the test</h1>
         <h3>Test information</h3>
         <p>{tddInformation}</p>
@@ -72,6 +73,7 @@ const EditTDDForm = ({allProjectInformation, setEntryId, setCurrentPage, categor
             <input type="submit" name="submit" value="Save" />
             </form>
         <button onClick={deleteProjectEntry}>Delete test</button>
+        </div>
         </>
         )
 

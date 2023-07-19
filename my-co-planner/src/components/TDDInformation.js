@@ -6,7 +6,7 @@ const TDDInformation = ({tddInformation, allTDDInformation}) => {
 
     return (
         <>
-        <h2>Test Information</h2>
+        <h1>Test Information</h1>
         <ul className="grid-for-information">
         {tddInformation}
        </ul>

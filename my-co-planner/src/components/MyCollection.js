@@ -4,7 +4,7 @@ const MyCollection = () => {
 
 
     return(
-        <h1>My Collection</h1>
+        <h1 id="mycollection-opener">Click on a Mushroom to see what's inside</h1>
     )
 }
 

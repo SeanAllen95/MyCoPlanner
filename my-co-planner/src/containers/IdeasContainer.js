@@ -23,10 +23,12 @@ const IdeasContainer = ({setCurrentPage, handleCurrentPageChange, handleCategory
 
     return(
         <>
+        <div className="submission-container">
         <h1>Ideas Page</h1>
         <h2>Use this page to add any ideas and notes you have</h2>
         <IdeasForm currentPage={currentPage} handleEntry1Change={handleEntry1Change} handleEntry2Change={handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange} handleProjectSubmit = {handleProjectSubmit}/>
         <IdeasInformation ideasInformation={ideasInformation} />
+        </div>
         </>
     )
 }

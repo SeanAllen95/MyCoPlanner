@@ -41,6 +41,7 @@ function EditProjectForm({setEntryId, allProjectInformation, setCurrentPage, cat
 
   return (
     <>
+    <div className="submission-container">
     <h1>Edit Project Details</h1>
     <p>{projectInformation}</p>
       <form onSubmit={handleEditProjectSubmit}>
@@ -79,6 +80,7 @@ function EditProjectForm({setEntryId, allProjectInformation, setCurrentPage, cat
 
         <input type="submit" name="submit" value="Update Project details" />
         </form>
+      </div>
     </>
   );
 }

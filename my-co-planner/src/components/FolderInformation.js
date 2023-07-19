@@ -6,7 +6,7 @@ const FolderInformation = ({folderInformation}) => {
 
     return (
         <>
-        <h2>Folders information</h2>
+        <h1>Folders information</h1>
         <ul className="grid-for-information">
         {folderInformation}
        </ul>

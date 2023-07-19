@@ -29,6 +29,7 @@ const EditFoldersForm = ({setCurrentPage, setEntryId, allProjectInformation, cat
 
     return (
         <>
+        <div className="submission-container">
         <h1>Edit Folder</h1>
         <p>{folderInformation}</p>
 
@@ -67,6 +68,7 @@ const EditFoldersForm = ({setCurrentPage, setEntryId, allProjectInformation, cat
             <input type="submit" name="submit" value="Edit Folder" />
             </form>
         <button onClick={deleteProjectEntry}>Delete folder and files</button>
+        </div>
         </>
         )
 

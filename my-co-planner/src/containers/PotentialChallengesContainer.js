@@ -23,9 +23,11 @@ const PotentialChallengesContainer = ({setCurrentPage, handleCategoryChange, han
 
     return(
         <>
+        <div className="submission-container">
         <h1>Potential Challenges Page</h1>
         <PotentialChallengesForm currentPage={currentPage} handleCategoryChange = {handleCategoryChange} handleEntry1Change={handleEntry1Change} handleEntry2Change={handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange} handleProjectSubmit = {handleProjectSubmit}/>
         <PotentialChallengesInformation potentialChallengesInformation={potentialChallengesInformation} />
+        </div>
         </>
     )
 }

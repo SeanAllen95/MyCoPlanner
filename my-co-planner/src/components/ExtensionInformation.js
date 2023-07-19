@@ -6,7 +6,7 @@ const ExtensionInformation = ({extensionInformation, allTDDInformation}) => {
 
     return (
         <>
-        <h2>Extension information</h2>
+        <h1>Extension information</h1>
         <ul className="grid-for-information">
         {extensionInformation}
        </ul>       

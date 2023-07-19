@@ -165,7 +165,7 @@ function App() {
 
 
   return (
-    <div className='whole-website'>
+    <div >
     <Router>
       <NavBar />
         <Routes>
@@ -203,6 +203,7 @@ function App() {
         <Route path="/MyCollection/HiddenMushroom" element={ < HiddenMushroom/> } />
         </Routes>
     </Router>
+    <div className="bottom-container"></div>
   </div>
   );
 }

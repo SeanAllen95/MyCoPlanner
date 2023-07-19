@@ -29,6 +29,7 @@ const EditTechStackForm = ({setCurrentPage, setEntryId, allProjectInformation, c
 
     return (
         <>
+        <div className="submission-container">
         <h1>Edit Tech Stack</h1>
 
         <p>{techStackInformation}</p>
@@ -68,6 +69,7 @@ const EditTechStackForm = ({setCurrentPage, setEntryId, allProjectInformation, c
             </form>
 
         <button onClick={deleteProjectEntry}>Delete Item</button>
+        </div>
         </>
         )
 

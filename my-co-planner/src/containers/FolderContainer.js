@@ -23,9 +23,11 @@ const FolderContainer = ({setCurrentPage, handleCategoryChange, handleEntry1Chan
 
     return(
         <>
+        <div className="submission-container">
         <h1>This is the Folder container</h1>
         <FolderForm currentPage={currentPage} handleCategoryChange = {handleCategoryChange} handleEntry1Change={handleEntry1Change} handleEntry2Change={handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange} handleProjectSubmit = {handleProjectSubmit}/>
         <FolderInformation folderInformation={folderInformation} />
+        </div>
         </>
     )
 }

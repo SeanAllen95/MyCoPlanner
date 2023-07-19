@@ -23,10 +23,12 @@ const TDDContainer = ({setCurrentPage, handleCurrentPageChange, handleCategoryCh
 
     return(
         <>
+        <div className="submission-container">
         <h1>TDD Page</h1>
         <h2>Use this page to add any tests you would like to perform</h2>
         <TDDForm currentPage={currentPage} handleEntry1Change={handleEntry1Change} handleEntry2Change={handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange} handleProjectSubmit = {handleProjectSubmit}/>
         <TDDInformation tddInformation={tddInformation} />
+        </div>
         </>
     )
 }
