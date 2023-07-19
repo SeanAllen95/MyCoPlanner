@@ -7,7 +7,7 @@ const ScheduleForm = ({category, currentPage, handleCategoryChange, entry1, hand
 
     return (
         <>
-        <h1>Add deadlines to tasks</h1>
+        <h2>Add deadlines to tasks</h2>
         <form onSubmit={handleProjectSubmit}>
 
             <label htmlFor={currentPage}></label>

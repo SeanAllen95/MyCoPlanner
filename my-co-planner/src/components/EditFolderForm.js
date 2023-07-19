@@ -23,33 +23,33 @@ const EditFoldersForm = ({setCurrentPage, setEntryId, allProjectInformation, cat
 
         if (entry.id == entryId){
         return (
-            <li key={entry.id}>{entry.entry1} {entry.entry2} </li>
+            <li className='edit-page-link' key={entry.id}>Name - {entry.entry1} <br/> Description - {entry.entry2} <br/> Function - {entry.entry3} <br/> Files - {entry.entry4} <br/> Extra Notes -  {entry.entryNotes}</li>
         );
         }});
 
     return (
         <>
-        <h1>Edit Folders</h1>
-        <h3>{folderInformation}</h3>
+        <h1>Edit Folder</h1>
+        <p>{folderInformation}</p>
 
         <form onSubmit={handleEditProjectSubmit}>
 
-            <label htmlFor={currentPage}>Category</label>
+        <label htmlFor={currentPage}></label>
             <input type='hidden' id={currentPage} value={category} /><br/>
 
-            <label htmlFor="entry1">Where in the app will this folder be located?</label>
+            <label htmlFor="entry1">Name/Description of the folder:</label><br/>
             <input type='text' id="entry1" value={entry1} onChange={handleEntry1Change} onClick={handleCategoryChange}/><br/>
 
-            <label htmlFor="entry2">What is the function of the folder?</label>
+            <label htmlFor="entry2">Where in the app will this folder be located?</label><br/>
             <input type='text' id="entry2" value={entry2} onChange={handleEntry2Change}/><br/>
 
-            <label htmlFor="entry3">What files will be located in this folder?</label>
+            <label htmlFor="entry3">What is the function of the folder?</label><br/>
             <input type='text' id="entry3" value={entry3} onChange={handleEntry3Change}/><br/>
 
-            {/* <label htmlFor="entry4">Entry4</label>
+            <label htmlFor="entry4">What files will be located in this folder?</label><br/>
             <input type='text' id="entry4" value={entry4} onChange={handleEntry4Change}/><br/>
 
-            <label htmlFor="entry5">Entry5</label>
+            {/* <label htmlFor="entry5">Entry5</label>
             <input type='text' id="entry5" value={entry5} onChange={handleEntry5Change}/><br/>
 
             <label htmlFor="entry6">Entry6</label>
@@ -59,12 +59,12 @@ const EditFoldersForm = ({setCurrentPage, setEntryId, allProjectInformation, cat
             <input type='text' id="entry7" value={entry7} onChange={handleEntry7Change}/><br/>
 
             <label htmlFor="entry8">Entry8</label>
-            <input type='text' id="entry8" value={entry8} onChange={handleEntry8Change}/><br/> */}
+            <input type='text' id="entry8" value={entry8} onChange={handleEntry8Change}/><br/>  */}
 
             <label htmlFor="entryNotes">Add extra notes here</label><br/>
             <input type='text' id="entryNotes" value={entryNotes} onChange={handleEntryNotesChange}/><br/>
 
-            <input type="submit" name="submit" value="Edit Folders" />
+            <input type="submit" name="submit" value="Edit Folder" />
             </form>
         <button onClick={deleteProjectEntry}>Delete folder and files</button>
         </>

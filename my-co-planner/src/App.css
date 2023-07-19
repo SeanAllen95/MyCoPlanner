@@ -89,9 +89,28 @@
 }
 
 .grid-for-information  li {
-  padding: 50px;
+  padding: 10px;
   list-style: none;
 }
+
+.edit-page-link {
+  list-style: none;
+}
+
+input[type=text] {
+  width: 40%;
+  padding: 10px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-size: large;
+}
+
+
+
+
+
+
+
 
 
 .App-logo {

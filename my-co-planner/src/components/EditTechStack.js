@@ -23,7 +23,7 @@ const EditTechStackForm = ({setCurrentPage, setEntryId, allProjectInformation, c
 
         if (entry.id == entryId){
         return (
-            <li key={entry.id}>{entry.entry1} {entry.entry2} </li>
+            <li className='edit-page-link' key={entry.id}>Item - {entry.entry1} <br/> Use - {entry.entry2} <br/> Research - {entry.entry3} <br/> Extra Notes - {entry.entryNotes} </li>
         );
         }});
 
@@ -31,7 +31,7 @@ const EditTechStackForm = ({setCurrentPage, setEntryId, allProjectInformation, c
         <>
         <h1>Edit Tech Stack</h1>
 
-        <h3>{techStackInformation}</h3>
+        <p>{techStackInformation}</p>
         <form onSubmit={handleEditProjectSubmit}>
 
             <label htmlFor={currentPage}></label>
@@ -61,7 +61,7 @@ const EditTechStackForm = ({setCurrentPage, setEntryId, allProjectInformation, c
             <label htmlFor="entry8">Entry8</label>
             <input type='text' id="entry8" value={entry8} onChange={handleEntry8Change}/><br/> */}
 
-            <label htmlFor="entryNotes">Add extra notes here</label>
+            <label htmlFor="entryNotes">Add extra notes here</label><br/>
             <input type='text' id="entryNotes" value={entryNotes} onChange={handleEntryNotesChange}/><br/>
 
             <input type="submit" name="submit" value="Save" />

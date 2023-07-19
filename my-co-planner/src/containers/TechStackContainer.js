@@ -10,7 +10,7 @@ const TechStackContainer = ({setCurrentPage, handleCategoryChange, handleEntry1C
 
         if (entry.category === "TechStack?submit=Save" || entry.category === "TechStack"){
         return (
-          <li key={entry.id}>{entry.entry1} {entry.entry2} {entry.entry3} {entry.entryNotes} <Link to={`/MyCollection/TechStack/edit/${entry.id}`}>Edit Tech Stack</Link></li>
+          <li key={entry.id}> Item - {entry.entry1} <br/> Use - {entry.entry2} <br/> Research - {entry.entry3} <br/> Extra Notes - {entry.entryNotes} <br/> <Link to={`/MyCollection/TechStack/edit/${entry.id}`}>Edit Tech Stack</Link></li>
         );
         }});    
         

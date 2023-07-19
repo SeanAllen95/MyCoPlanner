@@ -9,7 +9,7 @@ const PotentialChallengesForm = ({currentPage, category, handleCategoryChange, e
         <h1>Add Potential Challenges</h1>
         <form onSubmit={handleProjectSubmit}>
 
-            <label htmlFor={category}>Category</label>
+            <label htmlFor={category}></label>
             <input type='hidden' id={category} value={currentPage} /><br/>
 
             <label htmlFor="entry1">What is a potential challenge that could arise during the project?</label><br/>
@@ -36,7 +36,7 @@ const PotentialChallengesForm = ({currentPage, category, handleCategoryChange, e
             <label htmlFor="entry8">Entry8</label>
             <input type='text' id="entry8" value={entry8} onChange={handleEntry8Change}/><br/> */}
 
-            <label htmlFor="entryNotes">Add notes here on how to deal with this challenge</label>
+            <label htmlFor="entryNotes">Add notes here on how to deal with this challenge</label><br/>
             <input type='text' id="entryNotes" value={entryNotes} onChange={handleEntryNotesChange}/><br/>
 
             <input type="submit" name="submit" value="Save potential challenge" />

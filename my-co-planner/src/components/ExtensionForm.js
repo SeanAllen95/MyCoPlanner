@@ -6,7 +6,7 @@ const ExtensionForm = ({currentPage, category, handleCategoryChange, entry1,hand
 
     return (
         <>
-        <h1>Add extensions!</h1>
+        <h2>Add extensions</h2>
         <form onSubmit={handleProjectSubmit}>
 
             <label htmlFor={currentPage}></label>

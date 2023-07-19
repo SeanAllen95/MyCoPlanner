@@ -10,7 +10,7 @@ const FolderContainer = ({setCurrentPage, handleCategoryChange, handleEntry1Chan
 
         if (entry.category === "FolderAndFileStructure?submit=Save" || entry.category === "FolderAndFileStructure"){
         return (
-          <li key={entry.id}>{entry.entry1} {entry.entry2} {entry.entry3} {entry.entryNotes} <Link to={`/MyCollection/FolderAndFileStructure/edit/${entry.id}`}>Edit Folders</Link></li>
+          <li key={entry.id}>Name - {entry.entry1} <br/> Description - {entry.entry2} <br/> Function - {entry.entry3} <br/> Files - {entry.entry4} <br/> Extra Notes -  {entry.entryNotes}  <br/> <Link to={`/MyCollection/FolderAndFileStructure/edit/${entry.id}`}>Edit Folders</Link></li>
         );
         }});
 

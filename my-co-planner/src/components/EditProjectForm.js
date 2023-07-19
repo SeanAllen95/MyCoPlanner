@@ -23,7 +23,7 @@ function EditProjectForm({setEntryId, allProjectInformation, setCurrentPage, cat
 
         if (entry.id == entryId){
         return (
-            <li id="project-information-list-item" key={entry.id}>
+            <li className='edit-page-link' id="project-information-list-item" key={entry.id}>
             
             What is the name of the Project? - {entry.entry1} <br/>
             Give a Description of the project - {entry.entry2} <br/>

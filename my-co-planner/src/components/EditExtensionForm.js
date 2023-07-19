@@ -22,7 +22,7 @@ const EditExtensionForm = ({setEntryId, allProjectInformation, setCurrentPage, c
 
         if (entry.id == entryId){
         return (
-            <li key={entry.id}>{entry.entry1} {entry.entry2} </li>
+            <li className='edit-page-link' key={entry.id}>{entry.entry1} {entry.entry2} </li>
         );
         }});
 

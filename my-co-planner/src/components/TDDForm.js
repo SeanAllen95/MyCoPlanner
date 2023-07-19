@@ -14,14 +14,14 @@ const TDDForm = ({ category, currentPage, handleCurrentPageChange, entry1,handle
             <label htmlFor={category}></label>
             <input type='hidden' id={category} value={currentPage} /><br/>
 
-            <label htmlFor="entry1">Name of the test</label>
+            <label htmlFor="entry1">Name of the test</label><br/>
             <input type='text' id="entry1" value={entry1} onChange={handleEntry1Change}/><br/>
 
 
-            <label htmlFor="entry2">How it will be tested</label>
+            <label htmlFor="entry2">How it will be tested</label><br/>
             <input type='text' id="entry2" value={entry2} onChange={handleEntry2Change}/><br/>
 
-            <label htmlFor="entry3">Add code for the test here</label>
+            <label htmlFor="entry3">Add code for the test here</label><br/>
             <input type='text' id="entry3" value={entry3} onChange={handleEntry3Change}/><br/>
 
             {/* <label htmlFor="entry4">Add code for the test here</label>
@@ -39,7 +39,7 @@ const TDDForm = ({ category, currentPage, handleCurrentPageChange, entry1,handle
             <label htmlFor="entry8">Entry8</label>
             <input type='text' id="entry8" value={entry8} onChange={handleEntry8Change}/><br/> */}
 
-            <label htmlFor="entryNotes">Add extra notes here</label>
+            <label htmlFor="entryNotes">Add extra notes here</label><br/>
             <input type='text' id="entryNotes" value={entryNotes} onChange={handleEntryNotesChange}/><br/>
 
             <input type="submit" name="submit" value="Save" />

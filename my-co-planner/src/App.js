@@ -33,7 +33,7 @@ function App() {
   // console.log(entryId)
 
   const [entryId, setEntryId] = useState("Entry Id here")
-  console.log("Entry IDDD " + entryId)
+  // console.log("Entry IDDD " + entryId)
   // Current Page State
 
   const [currentPage, setCurrentPage] = useState("Category goes here")
@@ -41,7 +41,7 @@ function App() {
   // Current Page State Handlers 
 
   const handleCurrentPageChange = (ev) => setCurrentPage(ev.target.value)
-  console.log("CURRENT STATE " + currentPage)
+  // console.log("CURRENT STATE " + currentPage)
 
 
 

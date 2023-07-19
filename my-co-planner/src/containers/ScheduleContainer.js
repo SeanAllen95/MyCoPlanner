@@ -11,7 +11,7 @@ const ScheduleContainer = ({setEntryId, setCurrentPage, handleCategoryChange, ha
 
         if (entry.category === "ScheduleInformation?submit=Save" || entry.category === "ScheduleInformation"){
         return (
-          <li key={entry.id}>{entry.entry1} {entry.entry2} {entry.entry3} {entry.entryNotes} <Link to={`/MyCollection/ScheduleInformation/edit/${entry.id}`}>Edit Deadlines</Link></li>
+          <li key={entry.id}>Task - {entry.entry1} <br/> Deadline - {entry.entry2} <br/> Extra Notes - {entry.entryNotes} <br/> <Link to={`/MyCollection/ScheduleInformation/edit/${entry.id}`}>Edit Deadlines</Link></li>
         );
     }});
 
@@ -24,7 +24,7 @@ const ScheduleContainer = ({setEntryId, setCurrentPage, handleCategoryChange, ha
 
     return(
         <>
-        <h1>This is the Schedule container</h1>
+        <h1>Schedule Page</h1>
         <ScheduleForm currentPage={currentPage} handleCategoryChange = {handleCategoryChange} handleEntry1Change={handleEntry1Change} handleEntry2Change={handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange} handleProjectSubmit = {handleProjectSubmit}/>
         <ScheduleInformation scheduleInformation={scheduleInformation} />
         </>

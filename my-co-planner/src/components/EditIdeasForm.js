@@ -21,7 +21,7 @@ const EditIdeasForm = ({allProjectInformation, setEntryId, setCurrentPage, categ
 
         if (entry.id == entryId){
         return (
-            <li key={entry.id}>
+            <li className='edit-page-link' key={entry.id}>
             Name - {entry.entry1} <br/>
             Why - {entry.entry2} <br/>
             How - {entry.entry3} <br/>

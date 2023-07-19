@@ -22,16 +22,16 @@ const EditScheduleForm = ({setCurrentPage, setEntryId, allProjectInformation, ca
 
         if (entry.id == entryId){
         return (
-            <li key={entry.id}>{entry.entry1} {entry.entry2} </li>
+            <li className='edit-page-link' key={entry.id}>Task - {entry.entry1} <br/> Deadline - {entry.entry2} <br/> Extra Notes - {entry.entryNotes} </li>
         );
         }});
       
 
     return (
         <>
-        <h1>Edit Deadlines</h1>
+        <h1>Edit Deadline</h1>
 
-        <h3>{scheduleInformation}</h3>
+        <p>{scheduleInformation}</p>
         <form onSubmit={handleEditProjectSubmit}>
 
             <label htmlFor={currentPage}></label>
