@@ -6,9 +6,11 @@ const TechStackInformation = ({techStackInformation}) => {
 
     return (
         <>
-        <p>Tools and Languages information</p>
-        <p>{techStackInformation}</p>
-        </>
+        <h2>Tech Stack information</h2>
+        <ul className="grid-for-information">
+        {techStackInformation}
+        </ul>        
+       </>
     )
 
 

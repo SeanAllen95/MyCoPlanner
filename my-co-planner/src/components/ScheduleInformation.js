@@ -6,9 +6,10 @@ const ScheduleInformation = ({scheduleInformation, allTDDInformation}) => {
 
     return (
         <>
-        <p>Schedule information</p>
-        <p>{scheduleInformation}</p>
-       
+        <h2>Schedule information</h2>
+        <ul className="grid-for-information">
+        {scheduleInformation}
+       </ul>       
 
         </>
     )

@@ -16,6 +16,7 @@ const MyCollectionContainer = () => {
         <p className='mushroom-item'><Link to="/MyCollection/FolderAndFileStructure">Folder and File Structure Page</Link></p>
         <p className='mushroom-item'><Link to="/MyCollection/ExtensionInformation">Extension Page</Link></p>
         <p className='mushroom-item'><Link to="/MyCollection/HiddenMushroom">Magic Page</Link></p>
+        <p className='mushroom-item'><Link to="/MyCollection/Ideas">Ideas Page</Link></p>
         </div>
         </>
     )

@@ -10,7 +10,7 @@ const TDDContainer = ({setCurrentPage, handleCurrentPageChange, handleCategoryCh
 
         if (entry.category === "TDDInformation?submit=Save" || entry.category === "TDDInformation"){
         return (
-          <li className='test-item' key={entry.id}>{entry.entry1} {entry.entry2} <Link to={`/MyCollection/TDDInformation/edit/${entry.id}`}>Edit Test details</Link></li>
+          <li className='test-item' key={entry.id}>{entry.entry1} <br/>{entry.entry2} <br/>{entry.entry3} <br/>{entry.entryNotes} <br/><Link to={`/MyCollection/TDDInformation/edit/${entry.id}`}>Edit Test details</Link></li>
         );
         }});
 

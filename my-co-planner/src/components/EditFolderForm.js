@@ -37,16 +37,16 @@ const EditFoldersForm = ({setCurrentPage, setEntryId, allProjectInformation, cat
             <label htmlFor={currentPage}>Category</label>
             <input type='hidden' id={currentPage} value={category} /><br/>
 
-            <label htmlFor="entry1">Entry1</label>
+            <label htmlFor="entry1">Where in the app will this folder be located?</label>
             <input type='text' id="entry1" value={entry1} onChange={handleEntry1Change} onClick={handleCategoryChange}/><br/>
 
-            <label htmlFor="entry2">Entry2</label>
+            <label htmlFor="entry2">What is the function of the folder?</label>
             <input type='text' id="entry2" value={entry2} onChange={handleEntry2Change}/><br/>
 
-            <label htmlFor="entry3">Entry3</label>
+            <label htmlFor="entry3">What files will be located in this folder?</label>
             <input type='text' id="entry3" value={entry3} onChange={handleEntry3Change}/><br/>
 
-            <label htmlFor="entry4">Entry4</label>
+            {/* <label htmlFor="entry4">Entry4</label>
             <input type='text' id="entry4" value={entry4} onChange={handleEntry4Change}/><br/>
 
             <label htmlFor="entry5">Entry5</label>
@@ -59,14 +59,14 @@ const EditFoldersForm = ({setCurrentPage, setEntryId, allProjectInformation, cat
             <input type='text' id="entry7" value={entry7} onChange={handleEntry7Change}/><br/>
 
             <label htmlFor="entry8">Entry8</label>
-            <input type='text' id="entry8" value={entry8} onChange={handleEntry8Change}/><br/>
+            <input type='text' id="entry8" value={entry8} onChange={handleEntry8Change}/><br/> */}
 
-            <label htmlFor="entryNotes">Add extra notes here</label>
+            <label htmlFor="entryNotes">Add extra notes here</label><br/>
             <input type='text' id="entryNotes" value={entryNotes} onChange={handleEntryNotesChange}/><br/>
 
             <input type="submit" name="submit" value="Edit Folders" />
             </form>
-        <button onClick={deleteProjectEntry}>Delete</button>
+        <button onClick={deleteProjectEntry}>Delete folder and files</button>
         </>
         )
 

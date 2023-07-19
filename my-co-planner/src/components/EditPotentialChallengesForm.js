@@ -64,7 +64,7 @@ const EditPotentialChallengesForm = ({setCurrentPage, allProjectInformation, set
 
             <input type="submit" name="submit" value="Edit Extension" />
             </form>
-        <button onClick={deleteProjectEntry}>Delete extension</button>
+        <button onClick={deleteProjectEntry}>Delete potential challenge</button>
         </>
         )
 

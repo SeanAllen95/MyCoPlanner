@@ -11,7 +11,7 @@ const ScheduleContainer = ({setEntryId, setCurrentPage, handleCategoryChange, ha
 
         if (entry.category === "ScheduleInformation?submit=Save" || entry.category === "ScheduleInformation"){
         return (
-          <li key={entry.id}>{entry.entry1} {entry.entry2} <Link to={`/MyCollection/ScheduleInformation/edit/${entry.id}`}>Edit Deadlines</Link></li>
+          <li key={entry.id}>{entry.entry1} {entry.entry2} {entry.entry3} {entry.entryNotes} <Link to={`/MyCollection/ScheduleInformation/edit/${entry.id}`}>Edit Deadlines</Link></li>
         );
     }});
 
