@@ -1,16 +1,41 @@
 import React, {Component, useState, useEffect} from 'react';
+import { useLocation } from 'react-router-dom';
 
 
-const ToolsAndLanguagesForm = ({currentPageCategory, category, handleCategoryChange, entry1,handleEntry1Change, entry2,  handleEntry2Change, entry3, handleEntry3Change, entry4, handleEntry4Change, entry5, handleEntry5Change, entry6, handleEntry6Change, entry7, handleEntry7Change, entry8, handleEntry8Change, entryNotes, handleEntryNotesChange, handleProjectSubmit}) => {
+const EditTechStackForm = ({setCurrentPage, setEntryId, allProjectInformation, category, entry1, handleCategoryChange, handleEntry1Change, entry2,  handleEntry2Change, entry3, handleEntry3Change, entry4, handleEntry4Change, entry5, handleEntry5Change, entry6, handleEntry6Change, entry7, handleEntry7Change, entry8, handleEntry8Change, entryNotes, handleEntryNotesChange, handleEditProjectSubmit, deleteProjectEntry}) => {
       
+
+    const pageId = useLocation()
+    const entryId = pageId.pathname.slice(29)
+
+    useEffect(() => {
+        setEntryId(entryId);
+        }, []);
+
+    const theCurrentPage = useLocation()
+    const currentPage = theCurrentPage.pathname.slice(14, 23)
+
+    useEffect(() => {
+        setCurrentPage(currentPage);
+        }, []);
+
+    const techStackInformation = allProjectInformation?.map((entry) => {
+
+        if (entry.id == entryId){
+        return (
+            <li key={entry.id}>{entry.entry1} {entry.entry2} </li>
+        );
+        }});
 
     return (
         <>
-        <h1>Add Tools and Languages!</h1>
-        <form onSubmit={handleProjectSubmit}>
+        <h1>Edit Tech Stack</h1>
 
-            <label htmlFor={currentPageCategory}>Category</label>
-            <input type='hidden' id={currentPageCategory} value={category} /><br/>
+        <h3>{techStackInformation}</h3>
+        <form onSubmit={handleEditProjectSubmit}>
+
+            <label htmlFor={currentPage}>Category</label>
+            <input type='hidden' id={currentPage} value={category} /><br/>
 
             <label htmlFor="entry1">Entry1</label>
             <input type='text' id="entry1" value={entry1} onChange={handleEntry1Change} onClick={handleCategoryChange}/><br/>
@@ -40,10 +65,12 @@ const ToolsAndLanguagesForm = ({currentPageCategory, category, handleCategoryCha
             <input type='text' id="entryNotes" value={entryNotes} onChange={handleEntryNotesChange}/><br/>
 
             <input type="submit" name="submit" value="Save" />
-        </form>
+            </form>
+
+        <button onClick={deleteProjectEntry}>Delete Item</button>
         </>
         )
 
 }
 
-export default ToolsAndLanguagesForm;
+export default EditTechStackForm;

@@ -6,8 +6,11 @@ const PotentialChallengesInformation = ({potentialChallengesInformation, allTDDI
 
     return (
         <>
-        <p>Potential Challenges</p>
-        <p>{potentialChallengesInformation}</p>
+        <h2>Potential Challenges</h2>
+        <ul className="grid-for-information">
+
+        {potentialChallengesInformation}
+        </ul>
     
         </>
     )

@@ -9,7 +9,7 @@ const ScheduleContainer = ({setEntryId, setCurrentPage, handleCategoryChange, ha
 
     const scheduleInformation = allProjectInformation?.map((entry) => {
 
-        if (entry.category == "ScheduleInformation?submit=Save" || entry.category == "ScheduleInformation"){
+        if (entry.category === "ScheduleInformation?submit=Save" || entry.category === "ScheduleInformation"){
         return (
           <li key={entry.id}>{entry.entry1} {entry.entry2} <Link to={`/MyCollection/ScheduleInformation/edit/${entry.id}`}>Edit Deadlines</Link></li>
         );

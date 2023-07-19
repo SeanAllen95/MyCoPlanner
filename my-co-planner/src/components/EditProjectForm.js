@@ -23,14 +23,26 @@ function EditProjectForm({setEntryId, allProjectInformation, setCurrentPage, cat
 
         if (entry.id == entryId){
         return (
-            <li key={entry.id}>{entry.entry1} {entry.entry2} {entry.entry3}</li>
+            <li id="project-information-list-item" key={entry.id}>
+            
+            What is the name of the Project? - {entry.entry1} <br/>
+            Give a Description of the project - {entry.entry2} <br/>
+            What is the reason for doing the project? - {entry.entry3} <br/>
+            List the main aims of the project below<br/>
+            Aim - {entry.entry4} <br/>
+            Aim - {entry.entry5} <br/> 
+            Aim - {entry.entry6} <br/>
+            Aim - {entry.entry7} <br/> 
+            Aim - {entry.entry8} <br/> 
+            Extra Notes about the project - {entry.entryNotes} <br/>
+            </li>
         );
         }});
 
   return (
     <>
     <h1>Edit Project Details</h1>
-    <h2>{projectInformation}</h2>
+    <p>{projectInformation}</p>
       <form onSubmit={handleEditProjectSubmit}>
 
         <label htmlFor={currentPage}>Category</label>
@@ -65,7 +77,7 @@ function EditProjectForm({setEntryId, allProjectInformation, setCurrentPage, cat
         <label htmlFor="entryNotes">Any extra notes about the project can be added here</label>
         <input type='text' id="entryNotes" value={entryNotes} onChange={handleEntryNotesChange}/><br/>
 
-        <input type="submit" name="submit" value="Save" />
+        <input type="submit" name="submit" value="Update Project details" />
         </form>
     </>
   );

@@ -8,9 +8,9 @@ const PotentialChallengesContainer = ({setCurrentPage, handleCategoryChange, han
 
     const potentialChallengesInformation = allProjectInformation?.map((entry) => {
 
-        if (entry.category == "PotentialChallenges?submit=Save" || entry.category == "PotentialChallenges"){
+        if (entry.category === "PotentialChallenges?submit=Save" || entry.category === "PotentialChallenges"){
         return (
-          <li key={entry.id}>{entry.entry1} {entry.entry2} <Link to={`/MyCollection/PotentialChallenges/edit/${entry.id}`}>Edit Challenges</Link></li>
+          <li key={entry.id}>{entry.entry1} {entry.entry2} {entry.entry3} {entry.entryNotes} <Link to={`/MyCollection/PotentialChallenges/edit/${entry.id}`}>Edit Challenges</Link></li>
         );
         }});
 

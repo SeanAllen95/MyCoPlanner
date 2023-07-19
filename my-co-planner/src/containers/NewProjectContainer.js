@@ -1,7 +1,6 @@
 import ProjectForm from '../components/ProjectForm';
-import React, {Component, useState, useEffect} from 'react';
+import React, { useEffect} from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
 
 
 

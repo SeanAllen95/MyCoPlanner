@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Configuration, OpenAIApi } from 'openai';
 
-const MagicMushroom = () => {
+const HiddenMushroom = () => {
   
   const configuration = new Configuration({
     apiKey: process.env.REACT_APP_OPENAI_API_KEY,
@@ -54,4 +54,4 @@ const MagicMushroom = () => {
   );
 };
 
-export default MagicMushroom;
+export default HiddenMushroom;

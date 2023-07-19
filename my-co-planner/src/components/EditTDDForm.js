@@ -21,13 +21,18 @@ const EditTDDForm = ({allProjectInformation, setEntryId, setCurrentPage, categor
 
         if (entry.id == entryId){
         return (
-            <li key={entry.id}>{entry.entry1} {entry.entry2} </li>
+            <li key={entry.id}>
+            Name - {entry.entry1} <br/>
+            Why - {entry.entry2} <br/>
+            How - {entry.entry3} <br/>
+            Code - {entry.entry4} <br/>
+            Extra Notes - {entry.entryNotes} </li>
         );
         }});
 
     return (
         <>
-        <h1>Edit test</h1>
+        <h1>Edit the information in the test</h1>
         <h3>Test information</h3>
         <p>{tddInformation}</p>
 
@@ -50,7 +55,7 @@ const EditTDDForm = ({allProjectInformation, setEntryId, setCurrentPage, categor
             <label htmlFor="entry4">Add code for the test here</label>
             <input type='code' id="entry4" value={entry4} onChange={handleEntry4Change}/><br/>
 
-            <label htmlFor="entry5">Entry5</label>
+            {/* <label htmlFor="entry5">Entry5</label>
             <input type='text' id="entry5" value={entry5} onChange={handleEntry5Change}/><br/>
 
             <label htmlFor="entry6">Entry6</label>
@@ -60,7 +65,7 @@ const EditTDDForm = ({allProjectInformation, setEntryId, setCurrentPage, categor
             <input type='text' id="entry7" value={entry7} onChange={handleEntry7Change}/><br/>
 
             <label htmlFor="entry8">Entry8</label>
-            <input type='text' id="entry8" value={entry8} onChange={handleEntry8Change}/><br/>
+            <input type='text' id="entry8" value={entry8} onChange={handleEntry8Change}/><br/> */}
 
             <label htmlFor="entryNotes">Add extra notes here</label>
             <input type='text' id="entryNotes" value={entryNotes} onChange={handleEntryNotesChange}/><br/>

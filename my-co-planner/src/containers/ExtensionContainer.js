@@ -10,7 +10,7 @@ const ExtensionContainer = ({setCurrentPage, handleCategoryChange, handleEntry1C
 
     const extensionInformation = allProjectInformation?.map((entry) => {
 
-        if (entry.category == "ExtensionInformation?submit=Save" || entry.category == "ExtensionInformation"){
+        if (entry.category === "ExtensionInformation?submit=Save" || entry.category === "ExtensionInformation"){
         return (
           <li key={entry.id}>{entry.entry1} {entry.entry2} <Link to={`/MyCollection/ExtensionInformation/edit/${entry.id}`}>Edit Extension details</Link></li>
         );

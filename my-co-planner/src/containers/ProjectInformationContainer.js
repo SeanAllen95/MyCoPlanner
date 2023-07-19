@@ -15,8 +15,10 @@ const ProjectInformationContainer = ({allProjectInformation}) => {
 
     return (
         <>
-            <h1>Here is your project information</h1>
-            <ProjectInformation allProjectInformation={allProjectInformation}/>
+            <article className="container-item">
+                <h1 className="container-header">Here is your project information</h1>
+                <ProjectInformation allProjectInformation={allProjectInformation}/>
+            </article>
         </>
     )
 

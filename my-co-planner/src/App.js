@@ -16,11 +16,11 @@ import ExtensionContainer from './containers/ExtensionContainer'
 import EditExtensionForm from './components/EditExtensionForm';
 import PotentialChallengesContainer from './containers/PotentialChallengesContainer';
 import EditPotentialChallengesForm from './components/EditPotentialChallengesForm';
-import ToolsAndLanguagesContainer from './containers/ToolsAndLanguagesContainer';
-import EditToolsAndLanguagesForm from './components/EditToolsAndLanguages';
+import TechStackContainer from './containers/TechStackContainer';
+import EditTechStackForm from './components/EditTechStack';
 import FolderContainer from './containers/FolderContainer';
 import EditFolderForm from './components/EditFolderForm'
-import MagicMushroom from './components/MagicMushroom';
+import HiddenMushroom from './components/HiddenMushroom';
 
 function App() {
 
@@ -141,7 +141,7 @@ function App() {
         });
       };
 
-    const deleteProjectEntry = (entryId) => {
+    const deleteProjectEntry = () => {
       fetch(`http://localhost:8080/api/ProjectInformation/delete/${entryId}`, {
         method: 'DELETE'
       })
@@ -163,7 +163,7 @@ function App() {
 
 
   return (
-    <div>
+    <div className='whole-website'>
     <Router>
       <NavBar />
         <Routes>
@@ -188,12 +188,13 @@ function App() {
         <Route path="/MyCollection/PotentialChallenges" element={< PotentialChallengesContainer setCurrentPage={setCurrentPage} allProjectInformation={allProjectInformation} handleProjectSubmit = {handleProjectSubmit}  handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange}/>}/>
         <Route path="/MyCollection/PotentialChallenges/edit/:id" element={< EditPotentialChallengesForm PotentialChallengesContainer setCurrentPage={setCurrentPage} setEntryId={setEntryId} allProjectInformation={allProjectInformation} handleEditProjectSubmit={handleEditProjectSubmit} handleProjectSubmit = {handleProjectSubmit}  handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange}/>}/>
         
-        <Route path="/MyCollection/ToolsAndLanguages" element={< ToolsAndLanguagesContainer setCurrentPage={setCurrentPage} allProjectInformation={allProjectInformation} handleProjectSubmit = {handleProjectSubmit} handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange}/>}/>
-        <Route path="/MyCollection/ToolsAndLanguages/edit/:id" element={< EditToolsAndLanguagesForm ToolsAndLanguagesContainer setCurrentPage={setCurrentPage} setEntryId={setEntryId} allProjectInformation={allProjectInformation} handleEditProjectSubmit={handleEditProjectSubmit} handleProjectSubmit = {handleProjectSubmit}  handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange}/>}/>
+        <Route path="/MyCollection/TechStack" element={< TechStackContainer setCurrentPage={setCurrentPage} allProjectInformation={allProjectInformation} handleProjectSubmit = {handleProjectSubmit} handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange}/>}/>
+        <Route path="/MyCollection/TechStack/edit/:id" element={< EditTechStackForm TechStackContainer deleteProjectEntry={deleteProjectEntry} setCurrentPage={setCurrentPage} setEntryId={setEntryId} allProjectInformation={allProjectInformation} handleEditProjectSubmit={handleEditProjectSubmit} handleProjectSubmit = {handleProjectSubmit}  handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange}/>}/>
         
         <Route path="/MyCollection/FolderAndFileStructure" element={< FolderContainer allProjectInformation={allProjectInformation} setCurrentPage={setCurrentPage} handleProjectSubmit = {handleProjectSubmit}  handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange}/>}/>
         <Route path="/MyCollection/FolderAndFileStructure/edit/:id" element={< EditFolderForm FolderContainer allProjectInformation={allProjectInformation} setCurrentPage={setCurrentPage} setEntryId={setEntryId} handleEditProjectSubmit={handleEditProjectSubmit} handleProjectSubmit = {handleProjectSubmit} handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange}/>}/>
-        <Route path="/MyCollection/MagicMushroom" element={ < MagicMushroom/> } />
+        
+        <Route path="/MyCollection/HiddenMushroom" element={ < HiddenMushroom/> } />
         </Routes>
     </Router>
   </div>

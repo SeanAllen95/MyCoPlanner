@@ -8,7 +8,7 @@ const FolderContainer = ({setCurrentPage, handleCategoryChange, handleEntry1Chan
 
     const folderInformation = allProjectInformation?.map((entry) => {
 
-        if (entry.category == "FolderAndFileStructure?submit=Save" || entry.category == "FolderAndFileStructure"){
+        if (entry.category === "FolderAndFileStructure?submit=Save" || entry.category === "FolderAndFileStructure"){
         return (
           <li key={entry.id}>{entry.entry1} {entry.entry2} <Link to={`/MyCollection/FolderAndFileStructure/edit/${entry.id}`}>Edit Folders</Link></li>
         );

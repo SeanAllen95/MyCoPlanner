@@ -7,8 +7,9 @@ const TDDInformation = ({tddInformation, allTDDInformation}) => {
     return (
         <>
         <h2>Test Information</h2>
-        <p>{tddInformation}</p>
-       
+        <ul className="grid-for-information">
+        {tddInformation}
+       </ul>
 
         </>
     )

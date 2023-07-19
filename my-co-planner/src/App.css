@@ -1,10 +1,18 @@
 .App {
   text-align: center;
+  background-color: #FAF9F6;
+}
+
+.body {
+  background-color: #61dafb;
+}
+#root {
+  background-color: #f8efd4;
 }
 .nav-bar {
   display: flex;
   font-size: 30px;
-  background-color:rgb(34, 216, 34);
+  background-color:rgb(30, 138, 30);
   font-family: Arial, Helvetica, sans-serif;
 
 }
@@ -15,7 +23,7 @@
 }
 .link-list > li > a {
   text-decoration: none;
-  color: darkgreen;
+  color: white;
 }
 
 .link-list > li {
@@ -62,9 +70,27 @@
   grid-template-columns: auto auto auto;
 }
 
+.container-item {
+  padding-left: 50px;
+}
+
+#project-information-list-item {
+  list-style: none;
+}
+
 
 .mushroom-item {
   padding: 50px;
+}
+
+.grid-for-information {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.grid-for-information  li {
+  padding: 50px;
+  list-style: none;
 }
 
 
