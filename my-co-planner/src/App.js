@@ -2,7 +2,7 @@ import './App.css';
 import React, {Component, useState, useEffect} from 'react';
 import { BrowserRouter as Router, Routes, Route, useParams, useLocation} from "react-router-dom";
 import NavBar from './components/NavBar';
-import AboutPage from './components/About'
+import HomePage from './components/Home'
 import InformationPage from './components/InformationPage'
 import EditProjectForm from './components/EditProjectForm';
 import ProjectInfoContainer from './containers/NewProjectContainer';
@@ -23,6 +23,8 @@ import EditFolderForm from './components/EditFolderForm'
 import HiddenMushroom from './components/HiddenMushroom';
 import IdeasContainer from './containers/IdeasContainer';
 import EditIdeasForm from './components/EditIdeasForm';
+import RouteWrapper from './components/RouteWrapper';
+import TDDInformation from './components/TDDInformation';
 
 function App() {
 
@@ -161,6 +163,25 @@ function App() {
           console.log('Error deleting entry:', error);
         });
     };
+
+    const userFormProps = {
+      setCurrentPage,
+      setEntryId,
+      handleCurrentPageChange,
+      deleteProjectEntry,
+      handleEntry1Change,
+      handleEntry2Change,
+      allProjectInformation,
+      handleEntry3Change,
+      handleEntry4Change,
+      handleEntry5Change,
+      handleEntry6Change,
+      handleEntry7Change,
+      handleEntry8Change,
+      handleEntryNotesChange,
+      handleProjectSubmit,
+      handleEditProjectSubmit
+    };
       
 
 
@@ -169,35 +190,35 @@ function App() {
     <Router>
       <NavBar />
         <Routes>
-        <Route path="/" element={< InformationPage />} />
-        <Route path="/about" element={< AboutPage />} />
+        <Route path="/" element={< HomePage />} />
+        <Route path="/information" element={< InformationPage />} />
         <Route path="/NewProject" element={< ProjectInfoContainer NewProjectForm setCurrentPage={setCurrentPage} handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} allProjectInformation = {allProjectInformation} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange} handleProjectSubmit = {handleProjectSubmit} />} />
         
         <Route path="/MyCollection" element={< MyCollectionContainer />} />
 
-        <Route path="/MyCollection/TDDInformation" element={< TDDContainer  setCurrentPage={setCurrentPage} handleCurrentPageChange={handleCurrentPageChange} deleteProjectEntry={deleteProjectEntry} handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} allProjectInformation = {allProjectInformation} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange} handleProjectSubmit = {handleProjectSubmit}/>} />
-        <Route path="/MyCollection/TDDInformation/edit/:id" element={< EditTDDForm allProjectInformation={allProjectInformation} setEntryId={setEntryId} setCurrentPage={setCurrentPage} deleteProjectEntry={deleteProjectEntry} handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange} handleEditProjectSubmit = {handleEditProjectSubmit}   />} />
+        <Route path="/MyCollection/TDDInformation" element={< RouteWrapper component={TDDContainer} {...userFormProps} />} />
+        <Route path="/MyCollection/TDDInformation/edit/:id" element={< RouteWrapper component={EditTDDForm} {...userFormProps}/>} />
         
-        <Route path="/MyCollection/ProjectInformation" element={< ProjectInformationContainer setCurrentPage={setCurrentPage} allProjectInformation={allProjectInformation} handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange} handleEditProjectSubmit = {handleEditProjectSubmit}/>}/>
-        <Route path="/MyCollection/ProjectInformation/edit/:id" element={< EditProjectForm allProjectInformation = {allProjectInformation} setEntryId={setEntryId} setCurrentPage={setCurrentPage} handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange} handleEditProjectSubmit = {handleEditProjectSubmit} />}/>
+        <Route path="/MyCollection/ProjectInformation" element={< RouteWrapper component={ProjectInformationContainer} {...userFormProps}/>}/>
+        <Route path="/MyCollection/ProjectInformation/edit/:id" element={< RouteWrapper component={EditProjectForm}  {...userFormProps}/>}/>
         
-        <Route path="/MyCollection/ScheduleInformation" element={< ScheduleContainer setCurrentPage={setCurrentPage} allProjectInformation={allProjectInformation} handleProjectSubmit = {handleProjectSubmit}  handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange}/>}/>
-        <Route path="/MyCollection/ScheduleInformation/edit/:id" element={< EditScheduleForm ScheduleContainer deleteProjectEntry={deleteProjectEntry} setEntryId={setEntryId} setCurrentPage={setCurrentPage} allProjectInformation={allProjectInformation} handleEditProjectSubmit={handleEditProjectSubmit} handleProjectSubmit = {handleProjectSubmit}  handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange}/>}/>
+        <Route path="/MyCollection/ScheduleInformation" element={< RouteWrapper component={ScheduleContainer} {...userFormProps}/>}/>
+        <Route path="/MyCollection/ScheduleInformation/edit/:id" element={< RouteWrapper component={EditScheduleForm} {...userFormProps} />}/>
         
-        <Route path="/MyCollection/ExtensionInformation" element={< ExtensionContainer setCurrentPage={setCurrentPage} allProjectInformation={allProjectInformation} handleProjectSubmit = {handleProjectSubmit} handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange}/>}/>
-        <Route path="/MyCollection/ExtensionInformation/edit/:id" element={< EditExtensionForm ExtensionContainer deleteProjectEntry={deleteProjectEntry} setCurrentPage={setCurrentPage} setEntryId={setEntryId} allProjectInformation={allProjectInformation} handleEditProjectSubmit={handleEditProjectSubmit} handleProjectSubmit = {handleProjectSubmit}  handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange}/>}/>
+        <Route path="/MyCollection/ExtensionInformation" element={< RouteWrapper component={ExtensionContainer} {...userFormProps} />}/>
+        <Route path="/MyCollection/ExtensionInformation/edit/:id" element={< RouteWrapper component={EditExtensionForm} {...userFormProps} />}/>
         
-        <Route path="/MyCollection/PotentialChallenges" element={< PotentialChallengesContainer setCurrentPage={setCurrentPage} allProjectInformation={allProjectInformation} handleProjectSubmit = {handleProjectSubmit}  handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange}/>}/>
-        <Route path="/MyCollection/PotentialChallenges/edit/:id" element={< EditPotentialChallengesForm PotentialChallengesContainer deleteProjectEntry={deleteProjectEntry} setCurrentPage={setCurrentPage} setEntryId={setEntryId} allProjectInformation={allProjectInformation} handleEditProjectSubmit={handleEditProjectSubmit} handleProjectSubmit = {handleProjectSubmit}  handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange}/>}/>
+        <Route path="/MyCollection/PotentialChallenges" element={< RouteWrapper component={PotentialChallengesContainer} {...userFormProps} />}/>
+        <Route path="/MyCollection/PotentialChallenges/edit/:id" element={< RouteWrapper component={EditPotentialChallengesForm} {...userFormProps} />}/>
         
-        <Route path="/MyCollection/TechStack" element={< TechStackContainer setCurrentPage={setCurrentPage} allProjectInformation={allProjectInformation} handleProjectSubmit = {handleProjectSubmit} handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange}/>}/>
-        <Route path="/MyCollection/TechStack/edit/:id" element={< EditTechStackForm TechStackContainer deleteProjectEntry={deleteProjectEntry} setCurrentPage={setCurrentPage} setEntryId={setEntryId} allProjectInformation={allProjectInformation} handleEditProjectSubmit={handleEditProjectSubmit} handleProjectSubmit = {handleProjectSubmit}  handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange}/>}/>
+        <Route path="/MyCollection/TechStack" element={< RouteWrapper component={TechStackContainer} {...userFormProps} />}/>
+        <Route path="/MyCollection/TechStack/edit/:id" element={< RouteWrapper component={EditTechStackForm} {...userFormProps} />}/>
         
-        <Route path="/MyCollection/FolderAndFileStructure" element={< FolderContainer allProjectInformation={allProjectInformation} setCurrentPage={setCurrentPage} handleProjectSubmit = {handleProjectSubmit}  handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange}/>}/>
-        <Route path="/MyCollection/FolderAndFileStructure/edit/:id" element={< EditFolderForm FolderContainer allProjectInformation={allProjectInformation} setCurrentPage={setCurrentPage} deleteProjectEntry={deleteProjectEntry} setEntryId={setEntryId} handleEditProjectSubmit={handleEditProjectSubmit} handleProjectSubmit = {handleProjectSubmit} handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange}/>}/>
+        <Route path="/MyCollection/FolderAndFileStructure" element={< RouteWrapper component={FolderContainer} {...userFormProps}/>}/>
+        <Route path="/MyCollection/FolderAndFileStructure/edit/:id" element={< RouteWrapper component={EditFolderForm} {...userFormProps}/>}/>
         
-        <Route path="/MyCollection/Ideas" element={< IdeasContainer  setCurrentPage={setCurrentPage} handleCurrentPageChange={handleCurrentPageChange} deleteProjectEntry={deleteProjectEntry} handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} allProjectInformation = {allProjectInformation} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange} handleProjectSubmit = {handleProjectSubmit}/>} />
-        <Route path="/MyCollection/Ideas/edit/:id" element={< EditIdeasForm allProjectInformation={allProjectInformation} setEntryId={setEntryId} setCurrentPage={setCurrentPage} deleteProjectEntry={deleteProjectEntry} handleEntry1Change = {handleEntry1Change} handleEntry2Change = {handleEntry2Change} handleEntry3Change={handleEntry3Change} handleEntry4Change={handleEntry4Change} handleEntry5Change={handleEntry5Change} handleEntry6Change={handleEntry6Change} handleEntry7Change={handleEntry7Change} handleEntry8Change={handleEntry8Change} handleEntryNotesChange = {handleEntryNotesChange} handleEditProjectSubmit = {handleEditProjectSubmit}   />} />
+        <Route path="/MyCollection/Ideas" element={< RouteWrapper component={IdeasContainer} {...userFormProps} />} />
+        <Route path="/MyCollection/Ideas/edit/:id" element={< RouteWrapper component={EditIdeasForm} {...userFormProps} />} />
 
 
         <Route path="/MyCollection/HiddenMushroom" element={ < HiddenMushroom/> } />

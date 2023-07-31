@@ -61,6 +61,10 @@
   padding-right: 50px;
 }
 
+.information-container {
+  padding-bottom: 200px;
+}
+
 #new-project-button{
   margin-left: auto;
   margin-right: auto;
@@ -92,6 +96,7 @@
   grid-template-columns: auto auto auto;
   padding-left: 100px;
   padding-right: 100px;
+  padding-bottom: 200px;
 }
 
 .container-item {
@@ -128,6 +133,7 @@
 .grid-for-information {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  padding-bottom: 150px;
 }
 
 .grid-for-information  li {

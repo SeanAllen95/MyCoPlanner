@@ -15,7 +15,7 @@ const MyCollectionContainer = () => {
         <p className='mushroom-item'><Link to="/MyCollection/ScheduleInformation"><img width='300px' height='300px' src='/Mushroom5.png'></img>Schedule</Link></p>
         <p className='mushroom-item'><Link to="/MyCollection/FolderAndFileStructure"><img width='300px' height='300px' src='/Mushroom6.png'></img>Folder and File Structure</Link></p>
         <p className='mushroom-item'><Link to="/MyCollection/ExtensionInformation"><img width='300px' height='300px' src='/Mushroom7.png'></img>Extension</Link></p>
-        <p className='mushroom-item'><Link to="/MyCollection/HiddenMushroom"></Link></p>
+        {/* <p className='mushroom-item'><Link to="/MyCollection/HiddenMushroom"></Link></p> */}
         <p className='mushroom-item'><Link to="/MyCollection/Ideas"><img width='300px' height='300px' src='/Mushroom9.png'></img>Ideas</Link></p>
         </div>
         </>

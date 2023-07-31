@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-const AboutPage = () => {
+const HomePage = () => {
 
     return (
         <>
-        <h1 id="mycollection-opener">About page</h1>
         <h3 className="article-header">What is MyCoPlanner</h3>
         <article className="info-article">MyCoPlanner is a Software development planning app used to help software developers to generate a 
         plan for a software project. By asking questions and using prompts, MyCoPlanner 
@@ -20,4 +19,4 @@ const AboutPage = () => {
     )
 }
 
-export default AboutPage;
+export default HomePage;
