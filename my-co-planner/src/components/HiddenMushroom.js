@@ -8,7 +8,7 @@ const HiddenMushroom = () => {
   });
 
   configuration.baseOptions.headers = {
-    Authorization: "Bearer " + "MYAPIKEY",
+    Authorization: "Bearer " + "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",
   };
 
   const openai = new OpenAIApi(configuration);
